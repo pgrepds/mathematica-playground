@@ -1,0 +1,1793 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     83490,       1785]
+NotebookOptionsPosition[     78507,       1708]
+NotebookOutlinePosition[     78947,       1725]
+CellTagsIndexPosition[     78904,       1722]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Introduction to Technical Computing with Mathematica", "Title",
+ CellChangeTimes->{{3.8523697305913973`*^9, 3.852369804139979*^9}, {
+  3.852369857618248*^9, 3.852369872366417*^9}, {3.8523699320886793`*^9, 
+  3.8523699324202833`*^9}},ExpressionUUID->"6c5f7bf0-04e6-4f65-969d-\
+9e3efe187459"],
+
+Cell[CellGroupData[{
+
+Cell["Introduction to Cells", "Section",
+ CellChangeTimes->{{3.8523704954890423`*^9, 
+  3.8523704983993196`*^9}},ExpressionUUID->"99ce688b-2c26-43a9-8eeb-\
+3dc5631efc17"],
+
+Cell["\<\
+In Mathematica code and text are organized in a notebook file. A cell can \
+contain text (title, subtitle, chapters, sections, etc.), code and even \
+Wolfram Alpha search queries. In this document we have started with creating \
+a title cell, a chapter cell and this text cell. Organizing your notebook in \
+chapters, sections and subsections is very useful, since we can collapse the \
+content of each of them which makes larger notebooks more organized. To \
+achieve this \[OpenCurlyDoubleQuote]double click\[CloseCurlyDoubleQuote] on \
+the outer bracket of the chapter or section cell.
+
+Learning all the Mathematica shortcuts increases speed and we will document \
+the ones that we are using most of the time. A full list of shortcuts is \
+provided in the official Mathematica documentation \
+(https://reference.wolfram.com/language/tutorial/KeyboardShortcutListing.html)\
+.\
+\>", "Text",
+ CellChangeTimes->{{3.8523705336153917`*^9, 3.8523708269661207`*^9}, {
+  3.852370877966845*^9, 3.852370912556342*^9}, {3.852371052283163*^9, 
+  3.852371116602352*^9}, {3.8523711484100313`*^9, 
+  3.852371166242857*^9}},ExpressionUUID->"1288fe64-a4b1-4dee-94d5-\
+f3dfaf3b8827"],
+
+Cell["\<\
+Alt (Option) + Enter:\tcreates a new cell below the current one using the \
+same style as the current cell\
+\>", "Item",
+ CellChangeTimes->{{3.852371275262932*^9, 
+  3.85237132484137*^9}},ExpressionUUID->"b32719e0-1607-468a-b800-\
+615b1b5ad729"],
+
+Cell["\<\
+Alt (Option) + 1:\t\tchanges the style of the current cell to \
+\[OpenCurlyDoubleQuote]Title\[CloseCurlyDoubleQuote]\
+\>", "Item",
+ CellChangeTimes->{{3.852371275262932*^9, 
+  3.852371357578768*^9}},ExpressionUUID->"01ce9e07-dc30-40b3-9c1c-\
+3dd9a99e5be5"],
+
+Cell["\<\
+Alt (Option) + 2:\t\tchanges the style of the current cell to \
+\[OpenCurlyDoubleQuote]Chapter\[CloseCurlyDoubleQuote]\
+\>", "Item",
+ CellChangeTimes->{{3.852371275262932*^9, 
+  3.852371392817491*^9}},ExpressionUUID->"648dd9df-4f87-489b-9fb8-\
+7373c7b9c95f"],
+
+Cell["\<\
+Alt (Option) + 3:\t\tchanges the style of the current cell to \
+\[OpenCurlyDoubleQuote]Subchapter\[CloseCurlyDoubleQuote]\
+\>", "Item",
+ CellChangeTimes->{{3.852371275262932*^9, 
+  3.852371407300748*^9}},ExpressionUUID->"4425b8b2-2802-44e3-808c-\
+2f99b5cf3119"],
+
+Cell["\<\
+Alt (Option) + 4:\t\tchanges the style of the current cell to \
+\[OpenCurlyDoubleQuote]Section\[CloseCurlyDoubleQuote]\
+\>", "Item",
+ CellChangeTimes->{{3.852371275262932*^9, 
+  3.8523714430672007`*^9}},ExpressionUUID->"1044ca70-6f49-471d-a832-\
+df47285a4b2c"],
+
+Cell["\<\
+Alt (Option) + 5:\t\tchanges the style of the current cell to \
+\[OpenCurlyDoubleQuote]Subsection\[CloseCurlyDoubleQuote]\
+\>", "Item",
+ CellChangeTimes->{{3.852371275262932*^9, 
+  3.852371460076923*^9}},ExpressionUUID->"4753730f-d98a-4358-91db-\
+be4c133a5bfc"],
+
+Cell["\<\
+Alt (Option) + 6:\t\tchanges the style of the current cell to \
+\[OpenCurlyDoubleQuote]Subsubsection\[CloseCurlyDoubleQuote]\
+\>", "Item",
+ CellChangeTimes->{{3.852371275262932*^9, 
+  3.8523714796379147`*^9}},ExpressionUUID->"7530cc3d-f00a-4318-b88f-\
+168b8ca1c16a"],
+
+Cell["\<\
+Alt (Option) + 7:\t\tchanges the style of the current cell to \
+\[OpenCurlyDoubleQuote]Text\[CloseCurlyDoubleQuote]\
+\>", "Item",
+ CellChangeTimes->{{3.852371275262932*^9, 
+  3.852371496614835*^9}},ExpressionUUID->"859422c4-0047-4688-ba64-\
+26ca54df67f8"],
+
+Cell["\<\
+Alt (Option) + 8:\t\tchanges the style of the current cell to \
+\[OpenCurlyDoubleQuote]Code\[CloseCurlyDoubleQuote]\
+\>", "Item",
+ CellChangeTimes->{{3.852371275262932*^9, 
+  3.8523715126263323`*^9}},ExpressionUUID->"c69f2313-464f-49c5-a85f-\
+83adbc67e7fa"],
+
+Cell["\<\
+Alt (Option) + 9:\t\tchanges the style of the current cell to \
+\[OpenCurlyDoubleQuote]Input\[CloseCurlyDoubleQuote]\
+\>", "Item",
+ CellChangeTimes->{{3.852371275262932*^9, 3.8523715284531193`*^9}, {
+  3.8523715772995367`*^9, 
+  3.852371577300853*^9}},ExpressionUUID->"db22a1b8-2f02-4725-a015-\
+68851fdb7da1"],
+
+Cell["Shift + Enter:\t\tevaluates the current input cell", "Item",
+ CellChangeTimes->{{3.852371275262932*^9, 3.8523715284531193`*^9}, {
+  3.852371577861903*^9, 
+  3.8523715968698997`*^9}},ExpressionUUID->"a2b0097a-e7d6-440e-ac36-\
+565c1d38e7e4"],
+
+Cell["Shift + Ctrl + D:\t\tdivides cell", "Item",
+ CellChangeTimes->{{3.852371275262932*^9, 3.8523715284531193`*^9}, {
+  3.852371577861903*^9, 
+  3.852371617489128*^9}},ExpressionUUID->"73f9638b-504e-43ce-bad9-\
+85d5b4845170"],
+
+Cell["Shift + Ctrl + M:\t\tmerges cells", "Item",
+ CellChangeTimes->{{3.852371275262932*^9, 3.8523715284531193`*^9}, {
+  3.852371577861903*^9, 
+  3.852371633877511*^9}},ExpressionUUID->"64bca2b9-9218-496e-9ec2-\
+73d9aacd73de"],
+
+Cell["Shift + Ctrl + E:\t\tshows expression", "Item",
+ CellChangeTimes->{{3.852371275262932*^9, 3.8523715284531193`*^9}, {
+  3.852371577861903*^9, 3.852371649210124*^9}, {3.852373652329792*^9, 
+  3.8523736523301907`*^9}},ExpressionUUID->"547438a8-969e-48f3-9d38-\
+7e4108d9f80a"],
+
+Cell["\<\
+Ctrl + B:\t\t\twrite in bold, pressing again causes the next text to be in \
+normal style again\
+\>", "Item",
+ CellChangeTimes->{{3.852371275262932*^9, 3.8523715284531193`*^9}, {
+  3.852371577861903*^9, 3.852371649210124*^9}, {3.8523736587861147`*^9, 
+  3.852373690458403*^9}, {3.8523737366299667`*^9, 
+  3.852373742958213*^9}},ExpressionUUID->"19d7ce07-3c32-4bbd-881d-\
+9f5e07652214"],
+
+Cell["\<\
+Ctrl + I:\t\t\twrite in italic, pressing again causes the next text to be in \
+normal style again\
+\>", "Item",
+ CellChangeTimes->{{3.852371275262932*^9, 3.8523715284531193`*^9}, {
+  3.852371577861903*^9, 3.852371649210124*^9}, {3.8523736587861147`*^9, 
+  3.85237374684002*^9}},ExpressionUUID->"1ece3575-e019-4222-a9f9-\
+5e4b96f4951e"],
+
+Cell["Ctrl + U:\t\t\tunderline the text", "Item",
+ CellChangeTimes->{{3.852371275262932*^9, 3.8523715284531193`*^9}, {
+  3.852371577861903*^9, 3.852371649210124*^9}, {3.8523736587861147`*^9, 
+  3.8523737614461327`*^9}},ExpressionUUID->"02d95b0b-7833-43ec-a455-\
+d061a47c6e7d"],
+
+Cell["\<\
+The usual shortcuts for \[OpenCurlyDoubleQuote]copy, paste, cut, undo, redo, \
+etc.\[CloseCurlyDoubleQuote] are the same as in other editors.\
+\>", "Text",
+ CellChangeTimes->{{3.852371694098276*^9, 
+  3.852371722443026*^9}},ExpressionUUID->"f70ace6e-5860-4fb7-b149-\
+85e91b4c6d5d"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Include Wolfram Alpha Search Results", "Section",
+ CellChangeTimes->{{3.852370932169042*^9, 
+  3.852370953784431*^9}},ExpressionUUID->"a40f08a0-a769-4eb3-9857-\
+e1a6f0a34739"],
+
+Cell["\<\
+The cool thing about Mathematica notebooks is that we can mix code, \
+calculations, text and even search results from Wolfram Alpha. Imagine the \
+following setup: we want to explore some graph theoretic phenomenon but we \
+want to include the official definitions, examples or even the current state \
+of research in the same place. This can be done easily using Mathematica. \
+Formatting certain parts of a text cell in math mode is very convenient in \
+Mathematica. Do the following inside a text cell.\
+\>", "Text",
+ CellChangeTimes->{{3.852371733280171*^9, 3.8523719893188066`*^9}, {
+  3.852373421121333*^9, 3.852373422724234*^9}, {3.8523739112396393`*^9, 
+  3.8523739702982607`*^9}},ExpressionUUID->"5561f16b-7922-46f0-915c-\
+877ebbd507c8"],
+
+Cell["Press \[OpenCurlyDoubleQuote]Ctrl + (\[CloseCurlyDoubleQuote] to enter \
+inline math mode", "Item",
+ CellChangeTimes->{{3.852373982355191*^9, 
+  3.852374000777638*^9}},ExpressionUUID->"6871eb7a-400c-4816-a378-\
+df171a85b079"],
+
+Cell["Press \[OpenCurlyDoubleQuote]Ctrl+ )\[CloseCurlyDoubleQuote] to leave \
+math mode", "Item",
+ CellChangeTimes->{{3.852373982355191*^9, 
+  3.852374012443325*^9}},ExpressionUUID->"17012fcb-3d74-4102-ac9a-\
+2fd5eba52cd6"],
+
+Cell["\<\
+Entering special characters such as greek letters is possible in math mode by \
+first pressing \[OpenCurlyDoubleQuote]Esc\[CloseCurlyDoubleQuote] and then \
+entering the greek letter, e.g. \[OpenCurlyDoubleQuote]chi\
+\[CloseCurlyDoubleQuote]., and then entering \[OpenCurlyDoubleQuote]Esc\
+\[CloseCurlyDoubleQuote] again\
+\>", "Item",
+ CellChangeTimes->{{3.852373982355191*^9, 
+  3.8523740641637506`*^9}},ExpressionUUID->"3321c8c2-6bdd-4dad-89eb-\
+f79737c8cabe"],
+
+Cell["\<\
+A full reference can be found in the officical Mathematica documentation:\
+\>", "Text",
+ CellChangeTimes->{{3.8523740710796328`*^9, 
+  3.8523741073925667`*^9}},ExpressionUUID->"792fd3b6-cdf1-44aa-8a24-\
+8b9fb2177822"],
+
+Cell["\<\
+Math in Text: \
+https://reference.wolfram.com/language/workflow/InsertInlineMathInText.html\
+\>", "Item",
+ CellChangeTimes->{{3.8523741176199083`*^9, 
+  3.852374121681059*^9}},ExpressionUUID->"4958d76a-8a22-404b-89a9-\
+92f5600b72ed"],
+
+Cell["\<\
+Mathematical Notation Characters: \
+https://reference.wolfram.com/language/guide/MathematicalNotationCharacters.\
+html\
+\>", "Item",
+ CellChangeTimes->{{3.8523741176199083`*^9, 
+  3.852374147057158*^9}},ExpressionUUID->"231eab29-e6d4-4ef2-ac87-\
+34b6b24a3d8b"],
+
+Cell["\<\
+Greek letters: https://reference.wolfram.com/language/guide/GreekLetters.html\
+\
+\>", "Item",
+ CellChangeTimes->{{3.8523741176199083`*^9, 
+  3.8523741645419283`*^9}},ExpressionUUID->"cfe3af97-20df-432c-9e6e-\
+c8317257122a"],
+
+Cell[TextData[{
+ StyleBox["Definition: ",
+  FontWeight->"Bold"],
+ "A graph ",
+ Cell[BoxData[
+  FormBox["G", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "b0169207-119a-4e09-ab90-b0501bbb6c9c"],
+ " is ",
+ StyleBox["perfect",
+  FontSlant->"Italic"],
+ " if ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"\[Omega]", "(", "H", ")"}], "=", 
+    RowBox[{"\[Chi]", "(", "H", ")"}]}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "d6bba4a0-88b7-4eff-a428-469289098373"],
+ " for each induced subgraph ",
+ Cell[BoxData[
+  FormBox["H", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "dc33810f-5be5-402e-b11f-1a88d239ec9d"],
+ " of ",
+ Cell[BoxData[
+  FormBox["G", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "1834961c-f651-48a6-a65f-f777a6c1657b"],
+ "."
+}], "Text",
+ CellChangeTimes->{{3.852373549028902*^9, 3.852373549055385*^9}, {
+  3.852373579067671*^9, 3.8523736425157013`*^9}, {3.852373771109447*^9, 
+  3.852373804553467*^9}, {3.8523738601169767`*^9, 3.852373907716283*^9}, {
+  3.852374174577241*^9, 
+  3.852374175500379*^9}},ExpressionUUID->"e9fceef4-8a08-484e-b21b-\
+ce4de2aebd09"],
+
+Cell["\<\
+Now, imagine that we also want to display the informations that Wolfram Alpha \
+provides for perfect graphs. Create a new input cell and type \
+\[OpenCurlyDoubleQuote]==\[CloseCurlyDoubleQuote] and just enter a search \
+phrase. Then evaluate the search cell by just pressing \
+\[OpenCurlyDoubleQuote]Enter\[CloseCurlyDoubleQuote].\
+\>", "Text",
+ CellChangeTimes->{{3.8523741776126947`*^9, 
+  3.852374304918754*^9}},ExpressionUUID->"3677aa64-361a-480d-89c6-\
+b2506fac260d"],
+
+Cell[CellGroupData[{
+
+Cell["perfect graphs", "WolframAlphaLong",
+ CellChangeTimes->{{3.8523742702399817`*^9, 3.852374281510839*^9}},
+ CellLabel->"In[11]:=",ExpressionUUID->"c91d28fe-c084-42f2-9425-af229b0fcfb2"],
+
+Cell[BoxData[
+ NamespaceBox["WolframAlphaQueryResults",
+  DynamicModuleBox[{Typeset`q$$ = "perfect graphs", Typeset`opts$$ = {
+   AppearanceElements -> {
+     "Warnings", "Assumptions", "Brand", "Pods", "PodMenus", "Unsuccessful", 
+      "Sources"}, Asynchronous -> All, 
+    TimeConstraint -> {20, Automatic, Automatic, Automatic}, 
+    Method -> {
+     "Formats" -> {"cell", "minput", "msound", "dataformats"}, "Server" -> 
+      "https://api.wolframalpha.com/v1/"}}, Typeset`elements$$ = {
+   "Warnings", "Assumptions", "Brand", "Pods", "PodMenus", "Unsuccessful", 
+    "Sources"}, Typeset`pod1$$ = XMLElement[
+   "pod", {"title" -> "Input interpretation", "scanner" -> "Identity", "id" -> 
+     "Input", "position" -> "100", "error" -> "false", "numsubpods" -> "1"}, {
+    
+     XMLElement["subpod", {"title" -> ""}, {
+       XMLElement["minput", {}, {"Entity[\"MathWorld\", \"PerfectGraph\"]"}], 
+       
+       XMLElement["cell", {"compressed" -> False, "string" -> True}, {
+         Cell[
+          BoxData[
+           FormBox[
+            TagBox[
+             FormBox[
+              TagBox[
+               TagBox["\"perfect graph\"", 
+                $CellContext`TagBoxWrapper[
+                "Entity" -> {$CellContext`MathWorldData, "PerfectGraph"}]], 
+               Identity], TraditionalForm], 
+             PolynomialForm[#, TraditionalOrder -> False]& ], 
+            TraditionalForm]], "Output", {
+          Background -> None, 
+           GraphicsBoxOptions -> {
+            DefaultBaseStyle -> {FontFamily -> "Times", "Graphics"}, 
+             DefaultAxesStyle -> Directive[
+               GrayLevel[0, 0.35], FontColor -> GrayLevel[0.25], FontOpacity -> 
+               1, "GraphicsAxes"], DefaultFrameStyle -> Directive[
+               GrayLevel[0, 0.35], FontColor -> GrayLevel[0.25], FontOpacity -> 
+               1, "GraphicsFrame"], DefaultFrameTicksStyle -> 
+             Directive[
+              FontFamily -> "Times", FontSize -> 10, "GraphicsFrameTicks"], 
+             DefaultTicksStyle -> 
+             Directive[
+              FontFamily -> "Times", FontSize -> 10, "GraphicsTicks"]}, 
+           Graphics3DBoxOptions -> {
+            DefaultBaseStyle -> {FontFamily -> "Times", "Graphics3D"}}}, 
+          NumberPoint -> ".", CellSize -> {550, Automatic}, 
+          AutoStyleOptions -> {"HighlightFormattingErrors" -> False}, 
+          RenderingOptions -> {
+           "3DRenderingMethod" -> "BSPTreeOrDepthBuffer"}]}], 
+       XMLElement[
+       "dataformats", {}, {
+        "plaintext,minput,computabledata,formatteddata"}]}], 
+     XMLElement["expressiontypes", {"count" -> "1"}, {"\n   ", 
+       XMLElement["expressiontype", {"name" -> "Default"}, {}], "\n  "}]}], 
+   Typeset`pod2$$ = XMLElement[
+   "pod", {"title" -> "Illustration", "scanner" -> "Data", "id" -> 
+     "ImagePod:MathWorldData", "position" -> "200", "error" -> "false", 
+     "numsubpods" -> "0", "async" -> 
+     "https://www6b3.wolframalpha.com/api/v1/asyncPod.jsp?id=\
+MSPa534111beaa01d6a4e4h900004cia45e2ed0ec7556430556393126808734", 
+     "asyncfailed" -> "data not found"}, {
+     XMLElement["expressiontypes", {"count" -> "1"}, {"\n   ", 
+       XMLElement["expressiontype", {"name" -> "Default"}, {}], "\n  "}]}], 
+   Typeset`pod3$$ = XMLElement[
+   "pod", {"title" -> "Definition", "scanner" -> "Data", "id" -> 
+     "DefinitionPod:MathWorldData", "position" -> "300", "error" -> "false", 
+     "numsubpods" -> "1", "primary" -> "true"}, {
+     XMLElement["subpod", {"title" -> ""}, {
+       XMLElement[
+       "minput", {}, {
+        "Entity[\"MathWorld\", \
+\"PerfectGraph\"][EntityProperty[\"MathWorld\", \"TypesetDescription\"]]"}], 
+       XMLElement["cell", {"compressed" -> False, "string" -> True}, {
+         Cell[
+          BoxData[
+           FormBox[
+            TagBox[
+             GridBox[{{
+                Cell[
+                 TextData[{"A perfect graph is a graph ", 
+                   Cell[
+                    BoxData[
+                    FormBox["G", TraditionalForm]], "InlineFormula"], 
+                   " such that for every induced subgraph of ", 
+                   Cell[
+                    BoxData[
+                    FormBox["G", TraditionalForm]], "InlineFormula"], 
+                   ", the clique number equals the chromatic number, i.e., ", 
+                   
+                   Cell[
+                    BoxData[
+                    FormBox[
+                    RowBox[{"\[Omega]", 
+                    RowBox[{"(", "G", ")"}], "\[LongEqual]", "\[Chi]", 
+                    RowBox[{"(", "G", ")"}]}], TraditionalForm]], 
+                    "InlineFormula"], 
+                   ". A graph that is not a perfect graph is called an \
+imperfect graph."}], LineSpacing -> {1, 3}]}, {
+                Cell[
+                 TextData[{"A graph for which ", 
+                   Cell[
+                    BoxData[
+                    FormBox[
+                    RowBox[{"\[Omega]", 
+                    RowBox[{"(", "G", ")"}], "\[LongEqual]", "\[Chi]", 
+                    RowBox[{"(", "G", ")"}]}], TraditionalForm]], 
+                    "InlineFormula"], 
+                   " (without any requirement that this condition also hold \
+on induced subgraphs) is called a weakly perfect graph. All perfect graphs \
+are therefore weakly perfect by definition."}], LineSpacing -> {1, 3}]}}, 
+              GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+              BaseStyle -> {AutoMultiplicationSymbol -> False}, 
+              DefaultBaseStyle -> "Column", 
+              GridBoxItemSize -> {
+               "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+              GridBoxItemStyle -> {"Columns" -> {{
+                   Directive[SpanMaxSize -> DirectedInfinity[1]]}}, 
+                "Rows" -> {{
+                   Directive[SpanMaxSize -> DirectedInfinity[1]]}}}], 
+             "Column"], TraditionalForm]], "Output", {
+          Background -> None, 
+           GraphicsBoxOptions -> {
+            DefaultBaseStyle -> {FontFamily -> "Times", "Graphics"}, 
+             DefaultAxesStyle -> Directive[
+               GrayLevel[0, 0.35], FontColor -> GrayLevel[0.25], FontOpacity -> 
+               1, "GraphicsAxes"], DefaultFrameStyle -> Directive[
+               GrayLevel[0, 0.35], FontColor -> GrayLevel[0.25], FontOpacity -> 
+               1, "GraphicsFrame"], DefaultFrameTicksStyle -> 
+             Directive[
+              FontFamily -> "Times", FontSize -> 10, "GraphicsFrameTicks"], 
+             DefaultTicksStyle -> 
+             Directive[
+              FontFamily -> "Times", FontSize -> 10, "GraphicsTicks"]}, 
+           Graphics3DBoxOptions -> {
+            DefaultBaseStyle -> {FontFamily -> "Times", "Graphics3D"}}}, 
+          NumberPoint -> ".", CellSize -> {550, Automatic}, 
+          AutoStyleOptions -> {"HighlightFormattingErrors" -> False}, 
+          RenderingOptions -> {
+           "3DRenderingMethod" -> "BSPTreeOrDepthBuffer"}]}], 
+       XMLElement[
+       "dataformats", {}, {
+        "plaintext,minput,computabledata,formatteddata"}]}], 
+     XMLElement["expressiontypes", {"count" -> "1"}, {"\n   ", 
+       XMLElement["expressiontype", {"name" -> "Default"}, {}], "\n  "}], 
+     XMLElement["states", {"count" -> "1"}, {
+       XMLElement[
+       "state", {
+        "name" -> "More details", "input" -> 
+         "DefinitionPod:MathWorldData__More details"}, {}]}], 
+     XMLElement["infos", {"count" -> "1"}, {
+       XMLElement["info", {}, {
+         XMLElement[
+         "link", {
+          "url" -> "http://mathworld.wolfram.com/PerfectGraph.html", "text" -> 
+           "More information"}, {}]}]}]}], Typeset`pod4$$ = XMLElement[
+   "pod", {"title" -> "Related terms", "scanner" -> "Data", "id" -> 
+     "RelatedTermsPod:MathWorldData", "position" -> "400", "error" -> "false",
+      "numsubpods" -> "1"}, {
+     XMLElement["subpod", {"title" -> ""}, {
+       XMLElement[
+       "minput", {}, {
+        "Entity[\"MathWorld\", \
+\"PerfectGraph\"][EntityProperty[\"MathWorld\", \"RelatedEntries\"]]"}], 
+       XMLElement["cell", {"compressed" -> False, "string" -> True}, {
+         Cell[
+          BoxData[
+           FormBox[
+            StyleBox[
+             RowBox[{
+               FormBox[
+                TagBox[
+                 TagBox["\"chordal graph\"", 
+                  $CellContext`TagBoxWrapper[
+                  "Entity" -> {$CellContext`MathWorldData, "ChordalGraph"}]], 
+                 Identity], TraditionalForm], 
+               StyleBox[
+                RowBox[{"\[NoBreak]", 
+                  PaneBox[
+                  "\"  |  \"", BaselinePosition -> Baseline, BaseStyle -> 
+                   GrayLevel[0.6]]}], AutoSpacing -> True], 
+               FormBox[
+                TagBox[
+                 TagBox["\"chromatic number\"", 
+                  $CellContext`TagBoxWrapper[
+                  "Entity" -> {$CellContext`MathWorldData, 
+                    "ChromaticNumber"}]], Identity], TraditionalForm], 
+               StyleBox[
+                RowBox[{"\[NoBreak]", 
+                  PaneBox[
+                  "\"  |  \"", BaselinePosition -> Baseline, BaseStyle -> 
+                   GrayLevel[0.6]]}], AutoSpacing -> True], 
+               FormBox[
+                TagBox[
+                 TagBox["\"clique\"", 
+                  $CellContext`TagBoxWrapper[
+                  "Entity" -> {$CellContext`MathWorldData, "Clique"}]], 
+                 Identity], TraditionalForm], 
+               StyleBox[
+                RowBox[{"\[NoBreak]", 
+                  PaneBox[
+                  "\"  |  \"", BaselinePosition -> Baseline, BaseStyle -> 
+                   GrayLevel[0.6]]}], AutoSpacing -> True], 
+               FormBox[
+                TagBox[
+                 TagBox["\"imperfect graph\"", 
+                  $CellContext`TagBoxWrapper[
+                  "Entity" -> {$CellContext`MathWorldData, 
+                    "ImperfectGraph"}]], Identity], TraditionalForm], 
+               StyleBox[
+                RowBox[{"\[NoBreak]", 
+                  PaneBox[
+                  "\"  |  \"", BaselinePosition -> Baseline, BaseStyle -> 
+                   GrayLevel[0.6]]}], AutoSpacing -> True], 
+               FormBox[
+                TagBox[
+                 TagBox["\"perfect graph theorem\"", 
+                  $CellContext`TagBoxWrapper[
+                  "Entity" -> {$CellContext`MathWorldData, 
+                    "PerfectGraphTheorem"}]], Identity], TraditionalForm], 
+               StyleBox[
+                RowBox[{"\[NoBreak]", 
+                  PaneBox[
+                  "\"  |  \"", BaselinePosition -> Baseline, BaseStyle -> 
+                   GrayLevel[0.6]]}], AutoSpacing -> True], 
+               FormBox[
+                TagBox[
+                 TagBox["\"perfect matching\"", 
+                  $CellContext`TagBoxWrapper[
+                  "Entity" -> {$CellContext`MathWorldData, 
+                    "PerfectMatching"}]], Identity], TraditionalForm], 
+               StyleBox[
+                RowBox[{"\[NoBreak]", 
+                  PaneBox[
+                  "\"  |  \"", BaselinePosition -> Baseline, BaseStyle -> 
+                   GrayLevel[0.6]]}], AutoSpacing -> True], 
+               FormBox[
+                TagBox[
+                 TagBox["\"Shannon capacity\"", 
+                  $CellContext`TagBoxWrapper[
+                  "Entity" -> {$CellContext`MathWorldData, 
+                    "ShannonCapacity"}]], Identity], TraditionalForm], 
+               StyleBox[
+                RowBox[{"\[NoBreak]", 
+                  PaneBox[
+                  "\"  |  \"", BaselinePosition -> Baseline, BaseStyle -> 
+                   GrayLevel[0.6]]}], AutoSpacing -> True], 
+               FormBox[
+                TagBox[
+                 TagBox["\"strongly perfect graph\"", 
+                  $CellContext`TagBoxWrapper[
+                  "Entity" -> {$CellContext`MathWorldData, 
+                    "StronglyPerfectGraph"}]], Identity], TraditionalForm], 
+               StyleBox[
+                RowBox[{"\[NoBreak]", 
+                  PaneBox[
+                  "\"  |  \"", BaselinePosition -> Baseline, BaseStyle -> 
+                   GrayLevel[0.6]]}], AutoSpacing -> True], 
+               FormBox[
+                TagBox[
+                 TagBox["\"strong perfect graph theorem\"", 
+                  $CellContext`TagBoxWrapper[
+                  "Entity" -> {$CellContext`MathWorldData, 
+                    "StrongPerfectGraphTheorem"}]], Identity], 
+                TraditionalForm], 
+               StyleBox[
+                RowBox[{"\[NoBreak]", 
+                  PaneBox[
+                  "\"  |  \"", BaselinePosition -> Baseline, BaseStyle -> 
+                   GrayLevel[0.6]]}], AutoSpacing -> True], 
+               FormBox[
+                TagBox[
+                 TagBox["\"weakly perfect graph\"", 
+                  $CellContext`TagBoxWrapper[
+                  "Entity" -> {$CellContext`MathWorldData, 
+                    "WeaklyPerfectGraph"}]], Identity], TraditionalForm]}], 
+             LinebreakAdjustments -> {1, 10, 0, 0, 100}, LineIndent -> 0], 
+            TraditionalForm]], "Output", {
+          Background -> None, 
+           GraphicsBoxOptions -> {
+            DefaultBaseStyle -> {FontFamily -> "Times", "Graphics"}, 
+             DefaultAxesStyle -> Directive[
+               GrayLevel[0, 0.35], FontColor -> GrayLevel[0.25], FontOpacity -> 
+               1, "GraphicsAxes"], DefaultFrameStyle -> Directive[
+               GrayLevel[0, 0.35], FontColor -> GrayLevel[0.25], FontOpacity -> 
+               1, "GraphicsFrame"], DefaultFrameTicksStyle -> 
+             Directive[
+              FontFamily -> "Times", FontSize -> 10, "GraphicsFrameTicks"], 
+             DefaultTicksStyle -> 
+             Directive[
+              FontFamily -> "Times", FontSize -> 10, "GraphicsTicks"]}, 
+           Graphics3DBoxOptions -> {
+            DefaultBaseStyle -> {FontFamily -> "Times", "Graphics3D"}}}, 
+          NumberPoint -> ".", CellSize -> {550, Automatic}, 
+          AutoStyleOptions -> {"HighlightFormattingErrors" -> False}, 
+          RenderingOptions -> {
+           "3DRenderingMethod" -> "BSPTreeOrDepthBuffer"}]}], 
+       XMLElement[
+       "dataformats", {}, {
+        "plaintext,minput,computabledata,formatteddata"}]}], 
+     XMLElement["expressiontypes", {"count" -> "1"}, {"\n   ", 
+       XMLElement["expressiontype", {"name" -> "Default"}, {}], "\n  "}]}], 
+   Typeset`pod5$$ = XMLElement[
+   "pod", {"title" -> "Subject classifications", "scanner" -> "Data", "id" -> 
+     "SubjectPod:MathWorldData", "position" -> "500", "error" -> "false", 
+     "numsubpods" -> "2"}, {
+     XMLElement["subpod", {"title" -> "MathWorld"}, {
+       XMLElement["cell", {"compressed" -> False, "string" -> True}, {
+         Cell[
+          BoxData[
+           FormBox[
+            StyleBox[
+             RowBox[{
+               TagBox[
+                TagBox["\"class 1 graphs\"", 
+                 $CellContext`TagBoxWrapper[
+                 "EntityClass" -> {$CellContext`MathWorldData, 
+                    "Discrete Mathematics:Graph Theory:Simple Graphs:Class 1 \
+Graphs"}]], Identity], 
+               StyleBox[
+                RowBox[{"\[NoBreak]", 
+                  PaneBox[
+                  "\"  |  \"", BaselinePosition -> Baseline, BaseStyle -> 
+                   GrayLevel[0.6]]}], AutoSpacing -> True], 
+               TagBox[
+                TagBox["\"nonhamiltonian graphs\"", 
+                 $CellContext`TagBoxWrapper[
+                 "EntityClass" -> {$CellContext`MathWorldData, 
+                    "Discrete Mathematics:Graph Theory:Simple \
+Graphs:Nonhamiltonian Graphs"}]], Identity], 
+               StyleBox[
+                RowBox[{"\[NoBreak]", 
+                  PaneBox[
+                  "\"  |  \"", BaselinePosition -> Baseline, BaseStyle -> 
+                   GrayLevel[0.6]]}], AutoSpacing -> True], 
+               TagBox[
+                TagBox["\"perfect graphs\"", 
+                 $CellContext`TagBoxWrapper[
+                 "EntityClass" -> {$CellContext`MathWorldData, 
+                    "Discrete Mathematics:Graph Theory:Simple Graphs:Perfect \
+Graphs"}]], Identity], 
+               StyleBox[
+                RowBox[{"\[NoBreak]", 
+                  PaneBox[
+                  "\"  |  \"", BaselinePosition -> Baseline, BaseStyle -> 
+                   GrayLevel[0.6]]}], AutoSpacing -> True], 
+               TagBox[
+                TagBox["\"cliques\"", 
+                 $CellContext`TagBoxWrapper[
+                 "EntityClass" -> {$CellContext`MathWorldData, 
+                    "Discrete Mathematics:Graph Theory:Cliques"}]], 
+                Identity]}], LinebreakAdjustments -> {1, 10, 0, 0, 100}, 
+             LineIndent -> 0], TraditionalForm]], "Output", {
+          Background -> None, 
+           GraphicsBoxOptions -> {
+            DefaultBaseStyle -> {FontFamily -> "Times", "Graphics"}, 
+             DefaultAxesStyle -> Directive[
+               GrayLevel[0, 0.35], FontColor -> GrayLevel[0.25], FontOpacity -> 
+               1, "GraphicsAxes"], DefaultFrameStyle -> Directive[
+               GrayLevel[0, 0.35], FontColor -> GrayLevel[0.25], FontOpacity -> 
+               1, "GraphicsFrame"], DefaultFrameTicksStyle -> 
+             Directive[
+              FontFamily -> "Times", FontSize -> 10, "GraphicsFrameTicks"], 
+             DefaultTicksStyle -> 
+             Directive[
+              FontFamily -> "Times", FontSize -> 10, "GraphicsTicks"]}, 
+           Graphics3DBoxOptions -> {
+            DefaultBaseStyle -> {FontFamily -> "Times", "Graphics3D"}}}, 
+          NumberPoint -> ".", CellSize -> {550, Automatic}, 
+          AutoStyleOptions -> {"HighlightFormattingErrors" -> False}, 
+          RenderingOptions -> {
+           "3DRenderingMethod" -> "BSPTreeOrDepthBuffer"}]}], 
+       XMLElement[
+       "dataformats", {}, {"plaintext,computabledata,formatteddata"}]}], 
+     XMLElement["subpod", {"title" -> "MSC 2010"}, {
+       XMLElement[
+       "minput", {}, {
+        "Entity[\"MathWorld\", \
+\"PerfectGraph\"][EntityProperty[\"MathWorld\", \"MSC\"]]"}], 
+       XMLElement["cell", {"compressed" -> False, "string" -> True}, {
+         Cell[
+          BoxData[
+           FormBox[
+            TagBox[
+             TagBox["\"05C69\"", 
+              $CellContext`TagBoxWrapper[
+              "EntityClass" -> {$CellContext`MathWorldData, "05C69"}]], 
+             Identity], TraditionalForm]], "Output", {
+          Background -> None, 
+           GraphicsBoxOptions -> {
+            DefaultBaseStyle -> {FontFamily -> "Times", "Graphics"}, 
+             DefaultAxesStyle -> Directive[
+               GrayLevel[0, 0.35], FontColor -> GrayLevel[0.25], FontOpacity -> 
+               1, "GraphicsAxes"], DefaultFrameStyle -> Directive[
+               GrayLevel[0, 0.35], FontColor -> GrayLevel[0.25], FontOpacity -> 
+               1, "GraphicsFrame"], DefaultFrameTicksStyle -> 
+             Directive[
+              FontFamily -> "Times", FontSize -> 10, "GraphicsFrameTicks"], 
+             DefaultTicksStyle -> 
+             Directive[
+              FontFamily -> "Times", FontSize -> 10, "GraphicsTicks"]}, 
+           Graphics3DBoxOptions -> {
+            DefaultBaseStyle -> {FontFamily -> "Times", "Graphics3D"}}}, 
+          NumberPoint -> ".", CellSize -> {550, Automatic}, 
+          AutoStyleOptions -> {"HighlightFormattingErrors" -> False}, 
+          RenderingOptions -> {
+           "3DRenderingMethod" -> "BSPTreeOrDepthBuffer"}]}], 
+       XMLElement[
+       "dataformats", {}, {
+        "plaintext,minput,computabledata,formatteddata"}]}], 
+     XMLElement["expressiontypes", {"count" -> "2"}, {"\n   ", 
+       XMLElement["expressiontype", {"name" -> "Default"}, {}], "\n   ", 
+       XMLElement["expressiontype", {"name" -> "Default"}, {}], "\n  "}], 
+     XMLElement["states", {"count" -> "1"}, {
+       XMLElement[
+       "state", {
+        "name" -> "Show details", "input" -> 
+         "SubjectPod:MathWorldData__Show details"}, {}]}]}], 
+   Typeset`aux1$$ = {True, False, {False}, True}, Typeset`aux2$$ = {
+   True, False, {False}, True}, Typeset`aux3$$ = {True, False, {False}, True},
+    Typeset`aux4$$ = {True, False, {False}, True}, Typeset`aux5$$ = {
+   True, False, {False, False}, True}, Typeset`asyncpods$$ = {}, 
+   Typeset`nonpods$$ = {
+    XMLElement["assumptions", {"count" -> "1"}, {
+      XMLElement[
+      "assumption", {
+       "type" -> "Clash", "word" -> "perfect graphs", "template" -> 
+        "Assuming \"perfect graphs\" is referring to a mathematical \
+definition${separator}Use as ${desc} instead", "count" -> "2", "pulldown" -> 
+        "false", "default" -> 
+        "{\"C\", \"perfect graphs\"} -> {\"MathWorld\", \"dflt\"}"}, {
+        XMLElement[
+        "value", {
+         "name" -> "MathWorld", "desc" -> 
+          " referring to a mathematical definition", "input" -> 
+          "{\"C\", \"perfect graphs\"} -> {\"MathWorld\"}"}, {}], 
+        XMLElement[
+        "value", {
+         "name" -> "GraphClass", "desc" -> "a class of graphs", "input" -> 
+          "{\"C\", \"perfect graphs\"} -> {\"GraphClass\"}"}, {}]}]}]}, 
+   Typeset`initdone$$ = FrontEnd`SuppressEvaluationHash[True], 
+   Typeset`queryinfo$$ = {
+   "success" -> "true", "error" -> 
+    "false", {"http://www.w3.org/XML/1998/namespace", "space"} -> "preserve", 
+    "numpods" -> "5", "datatypes" -> "", "timedout" -> "", "timedoutpods" -> 
+    "", "timing" -> "0.594", "parsetiming" -> "0.133", "parsetimedout" -> 
+    "false", "recalculate" -> "", "id" -> 
+    "MSP533911beaa01d6a4e4h900004h5921hd1b770dd8", "host" -> 
+    "https://www6b3.wolframalpha.com", "server" -> "4", "related" -> 
+    "https://www6b3.wolframalpha.com/api/v1/relatedQueries.jsp?id=\
+MSPa534011beaa01d6a4e4h900006439b4a659fb1c416430556393126808734", "version" -> 
+    "2.6", "inputstring" -> "perfect graphs"}, Typeset`sessioninfo$$ = {
+   "TimeZone" -> 1., 
+    "Date" -> {2022, 1, 28, 16, 58, 6.331492`7.5540810499918285}, "Line" -> 
+    11, "SessionID" -> 30841170043181127290}, Typeset`showpods$$ = {1, 2, 3, 
+   4, 5}, Typeset`failedpods$$ = {2}, Typeset`chosen$$ = {}, Typeset`open$$ = 
+   False, Typeset`newq$$ = "perfect graphs"}, 
+   DynamicBox[ToBoxes[
+     AlphaIntegration`FormatAlphaResults[
+      Dynamic[{
+       1, {Typeset`pod1$$, Typeset`pod2$$, Typeset`pod3$$, Typeset`pod4$$, 
+         Typeset`pod5$$}, {
+        Typeset`aux1$$, Typeset`aux2$$, Typeset`aux3$$, Typeset`aux4$$, 
+         Typeset`aux5$$}, Typeset`chosen$$, Typeset`open$$, 
+        Typeset`elements$$, Typeset`q$$, Typeset`opts$$, Typeset`nonpods$$, 
+        Typeset`queryinfo$$, Typeset`sessioninfo$$, Typeset`showpods$$, 
+        Typeset`failedpods$$, Typeset`newq$$}]], StandardForm],
+    ImageSizeCache->{1541., {235.8515625, 241.1484375}},
+    TrackedSymbols:>{Typeset`showpods$$, Typeset`failedpods$$}],
+   DynamicModuleValues:>{},
+   Initialization:>If[
+     And[
+      Not[Typeset`initdone$$ === True], 
+      Not[Typeset`initdone$$ === FrontEnd`SuppressEvaluationHash[True]]], 
+     Null; WolframAlphaClient`Private`doAsyncUpdates[
+       Hold[{
+        Typeset`pod1$$, Typeset`pod2$$, Typeset`pod3$$, Typeset`pod4$$, 
+         Typeset`pod5$$}], Typeset`asyncpods$$, 
+       Dynamic[Typeset`failedpods$$]]; Typeset`asyncpods$$ = {}; 
+     Typeset`initdone$$ = FrontEnd`SuppressEvaluationHash[True]],
+   SynchronousInitialization->False],
+  BaseStyle->{Deployed -> True},
+  DeleteWithContents->True,
+  Editable->False,
+  SelectWithContents->True]], "Print", "WolframAlphaFullOutput",
+ CellChangeTimes->{
+  3.852374286346154*^9},ExpressionUUID->"f6c8c863-6c58-4d70-abd6-\
+0eab8e96514b"]
+}, Open  ]],
+
+Cell["\<\
+Let us suppose that we want to provide a reference to the strong perfect \
+graph theorem as well.\
+\>", "Text",
+ CellChangeTimes->{{3.852374335285108*^9, 3.8523743587758408`*^9}, {
+  3.852374457331874*^9, 
+  3.852374466181406*^9}},ExpressionUUID->"fd3d8802-9445-45e3-bfe9-\
+a930dc8493eb"],
+
+Cell[CellGroupData[{
+
+Cell["strong perfect graph theorem", "WolframAlphaLong",
+ CellChangeTimes->{{3.8523744774003553`*^9, 3.852374482793194*^9}},
+ CellLabel->"In[14]:=",ExpressionUUID->"0ede34e3-bcf4-4c68-b643-b3e951437243"],
+
+Cell[BoxData[
+ NamespaceBox["WolframAlphaQueryResults",
+  DynamicModuleBox[{Typeset`q$$ = "strong perfect graph theorem", 
+   Typeset`opts$$ = {
+   AppearanceElements -> {
+     "Warnings", "Assumptions", "Brand", "Pods", "PodMenus", "Unsuccessful", 
+      "Sources"}, Asynchronous -> All, 
+    TimeConstraint -> {20, Automatic, Automatic, Automatic}, 
+    Method -> {
+     "Formats" -> {"cell", "minput", "msound", "dataformats"}, "Server" -> 
+      "https://api.wolframalpha.com/v1/"}}, Typeset`elements$$ = {
+   "Warnings", "Assumptions", "Brand", "Pods", "PodMenus", "Unsuccessful", 
+    "Sources"}, Typeset`pod1$$ = XMLElement[
+   "pod", {"title" -> "Input interpretation", "scanner" -> "Identity", "id" -> 
+     "Input", "position" -> "100", "error" -> "false", "numsubpods" -> "1"}, {
+    
+     XMLElement["subpod", {"title" -> ""}, {
+       XMLElement[
+       "minput", {}, {
+        "Entity[\"MathWorld\", \"StrongPerfectGraphTheorem\"]"}], 
+       XMLElement["cell", {"compressed" -> False, "string" -> True}, {
+         Cell[
+          BoxData[
+           FormBox[
+            TagBox[
+             FormBox[
+              TagBox[
+               TagBox["\"strong perfect graph theorem\"", 
+                $CellContext`TagBoxWrapper[
+                "Entity" -> {$CellContext`MathWorldData, 
+                   "StrongPerfectGraphTheorem"}]], Identity], 
+              TraditionalForm], 
+             PolynomialForm[#, TraditionalOrder -> False]& ], 
+            TraditionalForm]], "Output", {
+          Background -> None, 
+           GraphicsBoxOptions -> {
+            DefaultBaseStyle -> {FontFamily -> "Times", "Graphics"}, 
+             DefaultAxesStyle -> Directive[
+               GrayLevel[0, 0.35], FontColor -> GrayLevel[0.25], FontOpacity -> 
+               1, "GraphicsAxes"], DefaultFrameStyle -> Directive[
+               GrayLevel[0, 0.35], FontColor -> GrayLevel[0.25], FontOpacity -> 
+               1, "GraphicsFrame"], DefaultFrameTicksStyle -> 
+             Directive[
+              FontFamily -> "Times", FontSize -> 10, "GraphicsFrameTicks"], 
+             DefaultTicksStyle -> 
+             Directive[
+              FontFamily -> "Times", FontSize -> 10, "GraphicsTicks"]}, 
+           Graphics3DBoxOptions -> {
+            DefaultBaseStyle -> {FontFamily -> "Times", "Graphics3D"}}}, 
+          NumberPoint -> ".", CellSize -> {550, Automatic}, 
+          AutoStyleOptions -> {"HighlightFormattingErrors" -> False}, 
+          RenderingOptions -> {
+           "3DRenderingMethod" -> "BSPTreeOrDepthBuffer"}]}], 
+       XMLElement[
+       "dataformats", {}, {
+        "plaintext,minput,computabledata,formatteddata"}]}], 
+     XMLElement["expressiontypes", {"count" -> "1"}, {"\n   ", 
+       XMLElement["expressiontype", {"name" -> "Default"}, {}], "\n  "}]}], 
+   Typeset`pod2$$ = XMLElement[
+   "pod", {"title" -> "Illustration", "scanner" -> "Data", "id" -> 
+     "ImagePod:MathWorldData", "position" -> "200", "error" -> "false", 
+     "numsubpods" -> "0", "async" -> 
+     "https://www6b3.wolframalpha.com/api/v1/asyncPod.jsp?id=\
+MSPa5231hch9df42b5ed47h0000596dc5ec389ab0g3822558548030476863", "asyncfailed" -> 
+     "data not found"}, {
+     XMLElement["expressiontypes", {"count" -> "1"}, {"\n   ", 
+       XMLElement["expressiontype", {"name" -> "Default"}, {}], "\n  "}]}], 
+   Typeset`pod3$$ = XMLElement[
+   "pod", {"title" -> "Alternate name", "scanner" -> "Data", "id" -> 
+     "AlternateNamesPod:MathWorldData", "position" -> "300", "error" -> 
+     "false", "numsubpods" -> "1"}, {
+     XMLElement["subpod", {"title" -> ""}, {
+       XMLElement[
+       "minput", {}, {
+        "Entity[\"MathWorld\", \"StrongPerfectGraphTheorem\"][EntityProperty[\
+\"MathWorld\", \"AlternateNames\"]]"}], 
+       XMLElement["cell", {"compressed" -> False, "string" -> True}, {
+         Cell[
+          BoxData[
+           FormBox["\"strong perfect graph conjecture\"", TraditionalForm]], 
+          "Output", {
+          Background -> None, 
+           GraphicsBoxOptions -> {
+            DefaultBaseStyle -> {FontFamily -> "Times", "Graphics"}, 
+             DefaultAxesStyle -> Directive[
+               GrayLevel[0, 0.35], FontColor -> GrayLevel[0.25], FontOpacity -> 
+               1, "GraphicsAxes"], DefaultFrameStyle -> Directive[
+               GrayLevel[0, 0.35], FontColor -> GrayLevel[0.25], FontOpacity -> 
+               1, "GraphicsFrame"], DefaultFrameTicksStyle -> 
+             Directive[
+              FontFamily -> "Times", FontSize -> 10, "GraphicsFrameTicks"], 
+             DefaultTicksStyle -> 
+             Directive[
+              FontFamily -> "Times", FontSize -> 10, "GraphicsTicks"]}, 
+           Graphics3DBoxOptions -> {
+            DefaultBaseStyle -> {FontFamily -> "Times", "Graphics3D"}}}, 
+          NumberPoint -> ".", CellSize -> {550, Automatic}, 
+          AutoStyleOptions -> {"HighlightFormattingErrors" -> False}, 
+          RenderingOptions -> {
+           "3DRenderingMethod" -> "BSPTreeOrDepthBuffer"}]}], 
+       XMLElement[
+       "dataformats", {}, {
+        "plaintext,minput,computabledata,formatteddata"}]}], 
+     XMLElement["expressiontypes", {"count" -> "1"}, {"\n   ", 
+       XMLElement["expressiontype", {"name" -> "Grid"}, {}], "\n  "}]}], 
+   Typeset`pod4$$ = XMLElement[
+   "pod", {"title" -> "Definition", "scanner" -> "Data", "id" -> 
+     "DefinitionPod:MathWorldData", "position" -> "400", "error" -> "false", 
+     "numsubpods" -> "1", "primary" -> "true"}, {
+     XMLElement["subpod", {"title" -> ""}, {
+       XMLElement[
+       "minput", {}, {
+        "Entity[\"MathWorld\", \"StrongPerfectGraphTheorem\"][EntityProperty[\
+\"MathWorld\", \"TypesetDescription\"]]"}], 
+       XMLElement["cell", {"compressed" -> False, "string" -> True}, {
+         Cell[
+          BoxData[
+           FormBox[
+            TagBox[
+             GridBox[{{
+                Cell[
+                 
+                 TextData[{
+                  "The theorem, originally conjectured by Berge (1960, 1961), \
+that a graph is perfect iff neither the graph nor its graph complement \
+contains an odd graph cycle of length at least five as an induced subgraph \
+became known as the strong perfect graph conjecture. The conjecture can be \
+stated more simply as the assertion that a graph is perfect iff it contains \
+no odd graph hole and no odd graph antihole. The proposition can be stated \
+even more succinctly as \[OpenCurlyDoubleQuote]a graph is perfect iff it is a \
+Berge graph.\[CloseCurlyDoubleQuote]"}], LineSpacing -> {1, 3}]}, {
+                Cell[
+                "This conjecture was proved in May 2002 following a \
+remarkable sequence of results by Chudnovsky, Robertson, Seymour, and \
+Thomas.", LineSpacing -> {1, 3}]}}, 
+              GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+              BaseStyle -> {AutoMultiplicationSymbol -> False}, 
+              DefaultBaseStyle -> "Column", 
+              GridBoxItemSize -> {
+               "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+              GridBoxItemStyle -> {"Columns" -> {{
+                   Directive[SpanMaxSize -> DirectedInfinity[1]]}}, 
+                "Rows" -> {{
+                   Directive[SpanMaxSize -> DirectedInfinity[1]]}}}], 
+             "Column"], TraditionalForm]], "Output", {
+          Background -> None, 
+           GraphicsBoxOptions -> {
+            DefaultBaseStyle -> {FontFamily -> "Times", "Graphics"}, 
+             DefaultAxesStyle -> Directive[
+               GrayLevel[0, 0.35], FontColor -> GrayLevel[0.25], FontOpacity -> 
+               1, "GraphicsAxes"], DefaultFrameStyle -> Directive[
+               GrayLevel[0, 0.35], FontColor -> GrayLevel[0.25], FontOpacity -> 
+               1, "GraphicsFrame"], DefaultFrameTicksStyle -> 
+             Directive[
+              FontFamily -> "Times", FontSize -> 10, "GraphicsFrameTicks"], 
+             DefaultTicksStyle -> 
+             Directive[
+              FontFamily -> "Times", FontSize -> 10, "GraphicsTicks"]}, 
+           Graphics3DBoxOptions -> {
+            DefaultBaseStyle -> {FontFamily -> "Times", "Graphics3D"}}}, 
+          NumberPoint -> ".", CellSize -> {550, Automatic}, 
+          AutoStyleOptions -> {"HighlightFormattingErrors" -> False}, 
+          RenderingOptions -> {
+           "3DRenderingMethod" -> "BSPTreeOrDepthBuffer"}]}], 
+       XMLElement[
+       "dataformats", {}, {
+        "plaintext,minput,computabledata,formatteddata"}]}], 
+     XMLElement["expressiontypes", {"count" -> "1"}, {"\n   ", 
+       XMLElement["expressiontype", {"name" -> "Default"}, {}], "\n  "}], 
+     XMLElement["infos", {"count" -> "1"}, {
+       XMLElement["info", {}, {
+         XMLElement[
+         "link", {
+          "url" -> 
+           "http://mathworld.wolfram.com/StrongPerfectGraphTheorem.html", 
+           "text" -> "More information"}, {}]}]}]}], Typeset`pod5$$ = 
+   XMLElement[
+   "pod", {"title" -> "Related terms", "scanner" -> "Data", "id" -> 
+     "RelatedTermsPod:MathWorldData", "position" -> "500", "error" -> "false",
+      "numsubpods" -> "1"}, {
+     XMLElement["subpod", {"title" -> ""}, {
+       XMLElement[
+       "minput", {}, {
+        "Entity[\"MathWorld\", \"StrongPerfectGraphTheorem\"][EntityProperty[\
+\"MathWorld\", \"RelatedEntries\"]]"}], 
+       XMLElement["cell", {"compressed" -> False, "string" -> True}, {
+         Cell[
+          BoxData[
+           FormBox[
+            StyleBox[
+             RowBox[{
+               FormBox[
+                TagBox[
+                 TagBox["\"Berge graph\"", 
+                  $CellContext`TagBoxWrapper[
+                  "Entity" -> {$CellContext`MathWorldData, "BergeGraph"}]], 
+                 Identity], TraditionalForm], 
+               StyleBox[
+                RowBox[{"\[NoBreak]", 
+                  PaneBox[
+                  "\"  |  \"", BaselinePosition -> Baseline, BaseStyle -> 
+                   GrayLevel[0.6]]}], AutoSpacing -> True], 
+               FormBox[
+                TagBox[
+                 TagBox["\"Bold conjecture\"", 
+                  $CellContext`TagBoxWrapper[
+                  "Entity" -> {$CellContext`MathWorldData, 
+                    "BoldConjecture"}]], Identity], TraditionalForm], 
+               StyleBox[
+                RowBox[{"\[NoBreak]", 
+                  PaneBox[
+                  "\"  |  \"", BaselinePosition -> Baseline, BaseStyle -> 
+                   GrayLevel[0.6]]}], AutoSpacing -> True], 
+               FormBox[
+                TagBox[
+                 TagBox["\"chordless cycle\"", 
+                  $CellContext`TagBoxWrapper[
+                  "Entity" -> {$CellContext`MathWorldData, 
+                    "ChordlessCycle"}]], Identity], TraditionalForm], 
+               StyleBox[
+                RowBox[{"\[NoBreak]", 
+                  PaneBox[
+                  "\"  |  \"", BaselinePosition -> Baseline, BaseStyle -> 
+                   GrayLevel[0.6]]}], AutoSpacing -> True], 
+               FormBox[
+                TagBox[
+                 TagBox["\"graph antihole\"", 
+                  $CellContext`TagBoxWrapper[
+                  "Entity" -> {$CellContext`MathWorldData, "GraphAntihole"}]],
+                  Identity], TraditionalForm], 
+               StyleBox[
+                RowBox[{"\[NoBreak]", 
+                  PaneBox[
+                  "\"  |  \"", BaselinePosition -> Baseline, BaseStyle -> 
+                   GrayLevel[0.6]]}], AutoSpacing -> True], 
+               FormBox[
+                TagBox[
+                 TagBox["\"graph hole\"", 
+                  $CellContext`TagBoxWrapper[
+                  "Entity" -> {$CellContext`MathWorldData, "GraphHole"}]], 
+                 Identity], TraditionalForm], 
+               StyleBox[
+                RowBox[{"\[NoBreak]", 
+                  PaneBox[
+                  "\"  |  \"", BaselinePosition -> Baseline, BaseStyle -> 
+                   GrayLevel[0.6]]}], AutoSpacing -> True], 
+               FormBox[
+                TagBox[
+                 TagBox["\"perfect graph\"", 
+                  $CellContext`TagBoxWrapper[
+                  "Entity" -> {$CellContext`MathWorldData, "PerfectGraph"}]], 
+                 Identity], TraditionalForm], 
+               StyleBox[
+                RowBox[{"\[NoBreak]", 
+                  PaneBox[
+                  "\"  |  \"", BaselinePosition -> Baseline, BaseStyle -> 
+                   GrayLevel[0.6]]}], AutoSpacing -> True], 
+               FormBox[
+                TagBox[
+                 TagBox["\"perfect graph theorem\"", 
+                  $CellContext`TagBoxWrapper[
+                  "Entity" -> {$CellContext`MathWorldData, 
+                    "PerfectGraphTheorem"}]], Identity], TraditionalForm]}], 
+             LinebreakAdjustments -> {1, 10, 0, 0, 100}, LineIndent -> 0], 
+            TraditionalForm]], "Output", {
+          Background -> None, 
+           GraphicsBoxOptions -> {
+            DefaultBaseStyle -> {FontFamily -> "Times", "Graphics"}, 
+             DefaultAxesStyle -> Directive[
+               GrayLevel[0, 0.35], FontColor -> GrayLevel[0.25], FontOpacity -> 
+               1, "GraphicsAxes"], DefaultFrameStyle -> Directive[
+               GrayLevel[0, 0.35], FontColor -> GrayLevel[0.25], FontOpacity -> 
+               1, "GraphicsFrame"], DefaultFrameTicksStyle -> 
+             Directive[
+              FontFamily -> "Times", FontSize -> 10, "GraphicsFrameTicks"], 
+             DefaultTicksStyle -> 
+             Directive[
+              FontFamily -> "Times", FontSize -> 10, "GraphicsTicks"]}, 
+           Graphics3DBoxOptions -> {
+            DefaultBaseStyle -> {FontFamily -> "Times", "Graphics3D"}}}, 
+          NumberPoint -> ".", CellSize -> {550, Automatic}, 
+          AutoStyleOptions -> {"HighlightFormattingErrors" -> False}, 
+          RenderingOptions -> {
+           "3DRenderingMethod" -> "BSPTreeOrDepthBuffer"}]}], 
+       XMLElement[
+       "dataformats", {}, {
+        "plaintext,minput,computabledata,formatteddata"}]}], 
+     XMLElement["expressiontypes", {"count" -> "1"}, {"\n   ", 
+       XMLElement["expressiontype", {"name" -> "Default"}, {}], "\n  "}]}], 
+   Typeset`pod6$$ = XMLElement[
+   "pod", {"title" -> "Subject classifications", "scanner" -> "Data", "id" -> 
+     "SubjectPod:MathWorldData", "position" -> "600", "error" -> "false", 
+     "numsubpods" -> "1"}, {
+     XMLElement["subpod", {"title" -> "MathWorld"}, {
+       XMLElement["cell", {"compressed" -> False, "string" -> True}, {
+         Cell[
+          BoxData[
+           FormBox[
+            StyleBox[
+             RowBox[{
+               TagBox[
+                TagBox["\"miscellaneous graph properties\"", 
+                 $CellContext`TagBoxWrapper[
+                 "EntityClass" -> {$CellContext`MathWorldData, 
+                    "Discrete Mathematics:Graph Theory:Graph \
+Properties:Miscellaneous Graph Properties"}]], Identity], 
+               StyleBox[
+                RowBox[{"\[NoBreak]", 
+                  PaneBox[
+                  "\"  |  \"", BaselinePosition -> Baseline, BaseStyle -> 
+                   GrayLevel[0.6]]}], AutoSpacing -> True], 
+               TagBox[
+                TagBox["\"solved problems\"", 
+                 $CellContext`TagBoxWrapper[
+                 "EntityClass" -> {$CellContext`MathWorldData, 
+                    "Foundations of Mathematics:Mathematical Problems:Solved \
+Problems"}]], Identity]}], LinebreakAdjustments -> {1, 10, 0, 0, 100}, 
+             LineIndent -> 0], TraditionalForm]], "Output", {
+          Background -> None, 
+           GraphicsBoxOptions -> {
+            DefaultBaseStyle -> {FontFamily -> "Times", "Graphics"}, 
+             DefaultAxesStyle -> Directive[
+               GrayLevel[0, 0.35], FontColor -> GrayLevel[0.25], FontOpacity -> 
+               1, "GraphicsAxes"], DefaultFrameStyle -> Directive[
+               GrayLevel[0, 0.35], FontColor -> GrayLevel[0.25], FontOpacity -> 
+               1, "GraphicsFrame"], DefaultFrameTicksStyle -> 
+             Directive[
+              FontFamily -> "Times", FontSize -> 10, "GraphicsFrameTicks"], 
+             DefaultTicksStyle -> 
+             Directive[
+              FontFamily -> "Times", FontSize -> 10, "GraphicsTicks"]}, 
+           Graphics3DBoxOptions -> {
+            DefaultBaseStyle -> {FontFamily -> "Times", "Graphics3D"}}}, 
+          NumberPoint -> ".", CellSize -> {550, Automatic}, 
+          AutoStyleOptions -> {"HighlightFormattingErrors" -> False}, 
+          RenderingOptions -> {
+           "3DRenderingMethod" -> "BSPTreeOrDepthBuffer"}]}], 
+       XMLElement[
+       "dataformats", {}, {"plaintext,computabledata,formatteddata"}]}], 
+     XMLElement["expressiontypes", {"count" -> "1"}, {"\n   ", 
+       XMLElement["expressiontype", {"name" -> "Default"}, {}], "\n  "}], 
+     XMLElement["states", {"count" -> "1"}, {
+       XMLElement[
+       "state", {
+        "name" -> "Show details", "input" -> 
+         "SubjectPod:MathWorldData__Show details"}, {}]}]}], 
+   Typeset`aux1$$ = {True, False, {False}, True}, Typeset`aux2$$ = {
+   True, False, {False}, True}, Typeset`aux3$$ = {True, False, {False}, True},
+    Typeset`aux4$$ = {True, False, {False}, True}, Typeset`aux5$$ = {
+   True, False, {False}, True}, Typeset`aux6$$ = {True, False, {False}, True},
+    Typeset`asyncpods$$ = {}, Typeset`nonpods$$ = {}, Typeset`initdone$$ = 
+   FrontEnd`SuppressEvaluationHash[True], Typeset`queryinfo$$ = {
+   "success" -> "true", "error" -> 
+    "false", {"http://www.w3.org/XML/1998/namespace", "space"} -> "preserve", 
+    "numpods" -> "6", "datatypes" -> "", "timedout" -> "", "timedoutpods" -> 
+    "", "timing" -> "0.803", "parsetiming" -> "0.301", "parsetimedout" -> 
+    "false", "recalculate" -> "", "id" -> 
+    "MSP5211hch9df42b5ed47h00005fc86678da1ac4b4", "host" -> 
+    "https://www6b3.wolframalpha.com", "server" -> "12", "related" -> 
+    "https://www6b3.wolframalpha.com/api/v1/relatedQueries.jsp?id=\
+MSPa5221hch9df42b5ed47h000012d7d07hb943783c822558548030476863", "version" -> 
+    "2.6", "inputstring" -> "strong perfect graph theorem"}, 
+   Typeset`sessioninfo$$ = {
+   "TimeZone" -> 1., 
+    "Date" -> {2022, 1, 28, 17, 1, 24.77174`8.14653149569379}, "Line" -> 14, 
+    "SessionID" -> 30841170043181127290}, Typeset`showpods$$ = {1, 2, 3, 4, 5,
+    6}, Typeset`failedpods$$ = {2}, Typeset`chosen$$ = {}, Typeset`open$$ = 
+   False, Typeset`newq$$ = "strong perfect graph theorem"}, 
+   DynamicBox[ToBoxes[
+     AlphaIntegration`FormatAlphaResults[
+      Dynamic[{
+       1, {Typeset`pod1$$, Typeset`pod2$$, Typeset`pod3$$, Typeset`pod4$$, 
+         Typeset`pod5$$, Typeset`pod6$$}, {
+        Typeset`aux1$$, Typeset`aux2$$, Typeset`aux3$$, Typeset`aux4$$, 
+         Typeset`aux5$$, Typeset`aux6$$}, Typeset`chosen$$, Typeset`open$$, 
+        Typeset`elements$$, Typeset`q$$, Typeset`opts$$, Typeset`nonpods$$, 
+        Typeset`queryinfo$$, Typeset`sessioninfo$$, Typeset`showpods$$, 
+        Typeset`failedpods$$, Typeset`newq$$}]], StandardForm],
+    ImageSizeCache->{1541., {235.8515625, 241.1484375}},
+    TrackedSymbols:>{Typeset`showpods$$, Typeset`failedpods$$}],
+   DynamicModuleValues:>{},
+   Initialization:>If[
+     And[
+      Not[Typeset`initdone$$ === True], 
+      Not[Typeset`initdone$$ === FrontEnd`SuppressEvaluationHash[True]]], 
+     Null; WolframAlphaClient`Private`doAsyncUpdates[
+       Hold[{
+        Typeset`pod1$$, Typeset`pod2$$, Typeset`pod3$$, Typeset`pod4$$, 
+         Typeset`pod5$$, Typeset`pod6$$}], Typeset`asyncpods$$, 
+       Dynamic[Typeset`failedpods$$]]; Typeset`asyncpods$$ = {}; 
+     Typeset`initdone$$ = FrontEnd`SuppressEvaluationHash[True]],
+   SynchronousInitialization->False],
+  BaseStyle->{Deployed -> True},
+  DeleteWithContents->True,
+  Editable->False,
+  SelectWithContents->True]], "Print", "WolframAlphaFullOutput",
+ CellChangeTimes->{
+  3.85237448478703*^9},ExpressionUUID->"ac896584-adff-449a-9f4f-dd91cc699fde"]
+}, Open  ]],
+
+Cell["\<\
+Now, let us suppose that we do not now what an odd hole is. This is no \
+problem.\
+\>", "Text",
+ CellChangeTimes->{{3.8523743883063087`*^9, 3.852374408485518*^9}, {
+  3.852374497264845*^9, 
+  3.8523745268763933`*^9}},ExpressionUUID->"e1412ef9-6df0-48ba-81ea-\
+524251d2ec5a"],
+
+Cell[CellGroupData[{
+
+Cell[" graph hole", "WolframAlphaLong",
+ CellChangeTimes->{{3.852374531224031*^9, 3.8523745664779654`*^9}},
+ CellLabel->"In[17]:=",ExpressionUUID->"9fb90ad0-0648-4ae4-b40f-149af5665211"],
+
+Cell[BoxData[
+ NamespaceBox["WolframAlphaQueryResults",
+  DynamicModuleBox[{Typeset`q$$ = "graph hole", Typeset`opts$$ = {
+   AppearanceElements -> {
+     "Warnings", "Assumptions", "Brand", "Pods", "PodMenus", "Unsuccessful", 
+      "Sources"}, Asynchronous -> All, 
+    TimeConstraint -> {20, Automatic, Automatic, Automatic}, 
+    Method -> {
+     "Formats" -> {"cell", "minput", "msound", "dataformats"}, "Server" -> 
+      "https://api.wolframalpha.com/v1/"}}, Typeset`elements$$ = {
+   "Warnings", "Assumptions", "Brand", "Pods", "PodMenus", "Unsuccessful", 
+    "Sources"}, Typeset`pod1$$ = XMLElement[
+   "pod", {"title" -> "Input interpretation", "scanner" -> "Identity", "id" -> 
+     "Input", "position" -> "100", "error" -> "false", "numsubpods" -> "1"}, {
+    
+     XMLElement["subpod", {"title" -> ""}, {
+       XMLElement["minput", {}, {"Entity[\"MathWorld\", \"GraphHole\"]"}], 
+       XMLElement["cell", {"compressed" -> False, "string" -> True}, {
+         Cell[
+          BoxData[
+           FormBox[
+            TagBox[
+             FormBox[
+              TagBox[
+               TagBox["\"graph hole\"", 
+                $CellContext`TagBoxWrapper[
+                "Entity" -> {$CellContext`MathWorldData, "GraphHole"}]], 
+               Identity], TraditionalForm], 
+             PolynomialForm[#, TraditionalOrder -> False]& ], 
+            TraditionalForm]], "Output", {
+          Background -> None, 
+           GraphicsBoxOptions -> {
+            DefaultBaseStyle -> {FontFamily -> "Times", "Graphics"}, 
+             DefaultAxesStyle -> Directive[
+               GrayLevel[0, 0.35], FontColor -> GrayLevel[0.25], FontOpacity -> 
+               1, "GraphicsAxes"], DefaultFrameStyle -> Directive[
+               GrayLevel[0, 0.35], FontColor -> GrayLevel[0.25], FontOpacity -> 
+               1, "GraphicsFrame"], DefaultFrameTicksStyle -> 
+             Directive[
+              FontFamily -> "Times", FontSize -> 10, "GraphicsFrameTicks"], 
+             DefaultTicksStyle -> 
+             Directive[
+              FontFamily -> "Times", FontSize -> 10, "GraphicsTicks"]}, 
+           Graphics3DBoxOptions -> {
+            DefaultBaseStyle -> {FontFamily -> "Times", "Graphics3D"}}}, 
+          NumberPoint -> ".", CellSize -> {550, Automatic}, 
+          AutoStyleOptions -> {"HighlightFormattingErrors" -> False}, 
+          RenderingOptions -> {
+           "3DRenderingMethod" -> "BSPTreeOrDepthBuffer"}]}], 
+       XMLElement[
+       "dataformats", {}, {
+        "plaintext,minput,computabledata,formatteddata"}]}], 
+     XMLElement["expressiontypes", {"count" -> "1"}, {"\n   ", 
+       XMLElement["expressiontype", {"name" -> "Default"}, {}], "\n  "}]}], 
+   Typeset`pod2$$ = XMLElement[
+   "pod", {"title" -> "Illustration", "scanner" -> "Data", "id" -> 
+     "ImagePod:MathWorldData", "position" -> "200", "error" -> "false", 
+     "numsubpods" -> "0", "async" -> 
+     "https://www6b3.wolframalpha.com/api/v1/asyncPod.jsp?id=\
+MSPa89421hch9905b78b126f000047836d7ai00iei83822558548030476863", 
+     "asyncfailed" -> "data not found"}, {
+     XMLElement["expressiontypes", {"count" -> "1"}, {"\n   ", 
+       XMLElement["expressiontype", {"name" -> "Default"}, {}], "\n  "}]}], 
+   Typeset`pod3$$ = XMLElement[
+   "pod", {"title" -> "Definition", "scanner" -> "Data", "id" -> 
+     "DefinitionPod:MathWorldData", "position" -> "300", "error" -> "false", 
+     "numsubpods" -> "1", "primary" -> "true"}, {
+     XMLElement["subpod", {"title" -> ""}, {
+       XMLElement[
+       "minput", {}, {
+        "Entity[\"MathWorld\", \"GraphHole\"][EntityProperty[\"MathWorld\", \
+\"TypesetDescription\"]]"}], 
+       XMLElement["cell", {"compressed" -> False, "string" -> True}, {
+         Cell[
+          BoxData[
+           FormBox[
+            TagBox[
+             GridBox[{{
+                Cell[
+                 
+                 TextData[{
+                  "Chv\[AAcute]tal defines the term hole to mean \
+\[OpenCurlyDoubleQuote]a chordless cycle of length at least four.\
+\[CloseCurlyDoubleQuote] The restriction \[OpenCurlyDoubleQuote]of length at \
+least four\[CloseCurlyDoubleQuote] allows use of the term \
+\[OpenCurlyDoubleQuote]hole\[CloseCurlyDoubleQuote] regardless of if the \
+definition of \[OpenCurlyDoubleQuote]chordless cycle\[CloseCurlyDoubleQuote] \
+is taken to already exclude cycles of length 3 or to include them (Cook 2012, \
+p. \[NoBreak]197; Wikipedia)."}], LineSpacing -> {1, 3}]}, {
+                Cell[
+                 
+                 TextData[{
+                  "Graph holes are called even if they have an even number of \
+vertices and odd if they have an odd number of vertices. The graph complement \
+of a hole is called a graph antihole. No odd hole is a perfect graph (since \
+the clique number of an odd hole is 2 and its chromatic number is 3)."}], 
+                 LineSpacing -> {1, 3}]}}, 
+              GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+              BaseStyle -> {AutoMultiplicationSymbol -> False}, 
+              DefaultBaseStyle -> "Column", 
+              GridBoxItemSize -> {
+               "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+              GridBoxItemStyle -> {"Columns" -> {{
+                   Directive[SpanMaxSize -> DirectedInfinity[1]]}}, 
+                "Rows" -> {{
+                   Directive[SpanMaxSize -> DirectedInfinity[1]]}}}], 
+             "Column"], TraditionalForm]], "Output", {
+          Background -> None, 
+           GraphicsBoxOptions -> {
+            DefaultBaseStyle -> {FontFamily -> "Times", "Graphics"}, 
+             DefaultAxesStyle -> Directive[
+               GrayLevel[0, 0.35], FontColor -> GrayLevel[0.25], FontOpacity -> 
+               1, "GraphicsAxes"], DefaultFrameStyle -> Directive[
+               GrayLevel[0, 0.35], FontColor -> GrayLevel[0.25], FontOpacity -> 
+               1, "GraphicsFrame"], DefaultFrameTicksStyle -> 
+             Directive[
+              FontFamily -> "Times", FontSize -> 10, "GraphicsFrameTicks"], 
+             DefaultTicksStyle -> 
+             Directive[
+              FontFamily -> "Times", FontSize -> 10, "GraphicsTicks"]}, 
+           Graphics3DBoxOptions -> {
+            DefaultBaseStyle -> {FontFamily -> "Times", "Graphics3D"}}}, 
+          NumberPoint -> ".", CellSize -> {550, Automatic}, 
+          AutoStyleOptions -> {"HighlightFormattingErrors" -> False}, 
+          RenderingOptions -> {
+           "3DRenderingMethod" -> "BSPTreeOrDepthBuffer"}]}], 
+       XMLElement[
+       "dataformats", {}, {
+        "plaintext,minput,computabledata,formatteddata"}]}], 
+     XMLElement["expressiontypes", {"count" -> "1"}, {"\n   ", 
+       XMLElement["expressiontype", {"name" -> "Default"}, {}], "\n  "}], 
+     XMLElement["infos", {"count" -> "1"}, {
+       XMLElement["info", {}, {
+         XMLElement[
+         "link", {
+          "url" -> "http://mathworld.wolfram.com/GraphHole.html", "text" -> 
+           "More information"}, {}]}]}]}], Typeset`pod4$$ = XMLElement[
+   "pod", {"title" -> "Related terms", "scanner" -> "Data", "id" -> 
+     "RelatedTermsPod:MathWorldData", "position" -> "400", "error" -> "false",
+      "numsubpods" -> "1"}, {
+     XMLElement["subpod", {"title" -> ""}, {
+       XMLElement[
+       "minput", {}, {
+        "Entity[\"MathWorld\", \"GraphHole\"][EntityProperty[\"MathWorld\", \
+\"RelatedEntries\"]]"}], 
+       XMLElement["cell", {"compressed" -> False, "string" -> True}, {
+         Cell[
+          BoxData[
+           FormBox[
+            StyleBox[
+             RowBox[{
+               FormBox[
+                TagBox[
+                 TagBox["\"Berge graph\"", 
+                  $CellContext`TagBoxWrapper[
+                  "Entity" -> {$CellContext`MathWorldData, "BergeGraph"}]], 
+                 Identity], TraditionalForm], 
+               StyleBox[
+                RowBox[{"\[NoBreak]", 
+                  PaneBox[
+                  "\"  |  \"", BaselinePosition -> Baseline, BaseStyle -> 
+                   GrayLevel[0.6]]}], AutoSpacing -> True], 
+               FormBox[
+                TagBox[
+                 TagBox["\"chordless cycle\"", 
+                  $CellContext`TagBoxWrapper[
+                  "Entity" -> {$CellContext`MathWorldData, 
+                    "ChordlessCycle"}]], Identity], TraditionalForm], 
+               StyleBox[
+                RowBox[{"\[NoBreak]", 
+                  PaneBox[
+                  "\"  |  \"", BaselinePosition -> Baseline, BaseStyle -> 
+                   GrayLevel[0.6]]}], AutoSpacing -> True], 
+               FormBox[
+                TagBox[
+                 TagBox["\"graph antihole\"", 
+                  $CellContext`TagBoxWrapper[
+                  "Entity" -> {$CellContext`MathWorldData, "GraphAntihole"}]],
+                  Identity], TraditionalForm], 
+               StyleBox[
+                RowBox[{"\[NoBreak]", 
+                  PaneBox[
+                  "\"  |  \"", BaselinePosition -> Baseline, BaseStyle -> 
+                   GrayLevel[0.6]]}], AutoSpacing -> True], 
+               FormBox[
+                TagBox[
+                 TagBox["\"graph cycle\"", 
+                  $CellContext`TagBoxWrapper[
+                  "Entity" -> {$CellContext`MathWorldData, "GraphCycle"}]], 
+                 Identity], TraditionalForm], 
+               StyleBox[
+                RowBox[{"\[NoBreak]", 
+                  PaneBox[
+                  "\"  |  \"", BaselinePosition -> Baseline, BaseStyle -> 
+                   GrayLevel[0.6]]}], AutoSpacing -> True], 
+               FormBox[
+                TagBox[
+                 TagBox["\"strong perfect graph theorem\"", 
+                  $CellContext`TagBoxWrapper[
+                  "Entity" -> {$CellContext`MathWorldData, 
+                    "StrongPerfectGraphTheorem"}]], Identity], 
+                TraditionalForm]}], 
+             LinebreakAdjustments -> {1, 10, 0, 0, 100}, LineIndent -> 0], 
+            TraditionalForm]], "Output", {
+          Background -> None, 
+           GraphicsBoxOptions -> {
+            DefaultBaseStyle -> {FontFamily -> "Times", "Graphics"}, 
+             DefaultAxesStyle -> Directive[
+               GrayLevel[0, 0.35], FontColor -> GrayLevel[0.25], FontOpacity -> 
+               1, "GraphicsAxes"], DefaultFrameStyle -> Directive[
+               GrayLevel[0, 0.35], FontColor -> GrayLevel[0.25], FontOpacity -> 
+               1, "GraphicsFrame"], DefaultFrameTicksStyle -> 
+             Directive[
+              FontFamily -> "Times", FontSize -> 10, "GraphicsFrameTicks"], 
+             DefaultTicksStyle -> 
+             Directive[
+              FontFamily -> "Times", FontSize -> 10, "GraphicsTicks"]}, 
+           Graphics3DBoxOptions -> {
+            DefaultBaseStyle -> {FontFamily -> "Times", "Graphics3D"}}}, 
+          NumberPoint -> ".", CellSize -> {550, Automatic}, 
+          AutoStyleOptions -> {"HighlightFormattingErrors" -> False}, 
+          RenderingOptions -> {
+           "3DRenderingMethod" -> "BSPTreeOrDepthBuffer"}]}], 
+       XMLElement[
+       "dataformats", {}, {
+        "plaintext,minput,computabledata,formatteddata"}]}], 
+     XMLElement["expressiontypes", {"count" -> "1"}, {"\n   ", 
+       XMLElement["expressiontype", {"name" -> "Default"}, {}], "\n  "}]}], 
+   Typeset`pod5$$ = XMLElement[
+   "pod", {"title" -> "Subject classifications", "scanner" -> "Data", "id" -> 
+     "SubjectPod:MathWorldData", "position" -> "500", "error" -> "false", 
+     "numsubpods" -> "2"}, {
+     XMLElement["subpod", {"title" -> "MathWorld"}, {
+       XMLElement["cell", {"compressed" -> False, "string" -> True}, {
+         Cell[
+          BoxData[
+           FormBox[
+            TagBox[
+             TagBox["\"circuits\"", 
+              $CellContext`TagBoxWrapper[
+              "EntityClass" -> {$CellContext`MathWorldData, 
+                 "Discrete Mathematics:Graph Theory:Circuits"}]], Identity], 
+            TraditionalForm]], "Output", {
+          Background -> None, 
+           GraphicsBoxOptions -> {
+            DefaultBaseStyle -> {FontFamily -> "Times", "Graphics"}, 
+             DefaultAxesStyle -> Directive[
+               GrayLevel[0, 0.35], FontColor -> GrayLevel[0.25], FontOpacity -> 
+               1, "GraphicsAxes"], DefaultFrameStyle -> Directive[
+               GrayLevel[0, 0.35], FontColor -> GrayLevel[0.25], FontOpacity -> 
+               1, "GraphicsFrame"], DefaultFrameTicksStyle -> 
+             Directive[
+              FontFamily -> "Times", FontSize -> 10, "GraphicsFrameTicks"], 
+             DefaultTicksStyle -> 
+             Directive[
+              FontFamily -> "Times", FontSize -> 10, "GraphicsTicks"]}, 
+           Graphics3DBoxOptions -> {
+            DefaultBaseStyle -> {FontFamily -> "Times", "Graphics3D"}}}, 
+          NumberPoint -> ".", CellSize -> {550, Automatic}, 
+          AutoStyleOptions -> {"HighlightFormattingErrors" -> False}, 
+          RenderingOptions -> {
+           "3DRenderingMethod" -> "BSPTreeOrDepthBuffer"}]}], 
+       XMLElement[
+       "dataformats", {}, {"plaintext,computabledata,formatteddata"}]}], 
+     XMLElement["subpod", {"title" -> "MSC 2010"}, {
+       XMLElement[
+       "minput", {}, {
+        "Entity[\"MathWorld\", \"GraphHole\"][EntityProperty[\"MathWorld\", \
+\"MSC\"]]"}], 
+       XMLElement["cell", {"compressed" -> False, "string" -> True}, {
+         Cell[
+          BoxData[
+           FormBox[
+            TagBox[
+             TagBox["\"05C38\"", 
+              $CellContext`TagBoxWrapper[
+              "EntityClass" -> {$CellContext`MathWorldData, "05C38"}]], 
+             Identity], TraditionalForm]], "Output", {
+          Background -> None, 
+           GraphicsBoxOptions -> {
+            DefaultBaseStyle -> {FontFamily -> "Times", "Graphics"}, 
+             DefaultAxesStyle -> Directive[
+               GrayLevel[0, 0.35], FontColor -> GrayLevel[0.25], FontOpacity -> 
+               1, "GraphicsAxes"], DefaultFrameStyle -> Directive[
+               GrayLevel[0, 0.35], FontColor -> GrayLevel[0.25], FontOpacity -> 
+               1, "GraphicsFrame"], DefaultFrameTicksStyle -> 
+             Directive[
+              FontFamily -> "Times", FontSize -> 10, "GraphicsFrameTicks"], 
+             DefaultTicksStyle -> 
+             Directive[
+              FontFamily -> "Times", FontSize -> 10, "GraphicsTicks"]}, 
+           Graphics3DBoxOptions -> {
+            DefaultBaseStyle -> {FontFamily -> "Times", "Graphics3D"}}}, 
+          NumberPoint -> ".", CellSize -> {550, Automatic}, 
+          AutoStyleOptions -> {"HighlightFormattingErrors" -> False}, 
+          RenderingOptions -> {
+           "3DRenderingMethod" -> "BSPTreeOrDepthBuffer"}]}], 
+       XMLElement[
+       "dataformats", {}, {
+        "plaintext,minput,computabledata,formatteddata"}]}], 
+     XMLElement["expressiontypes", {"count" -> "2"}, {"\n   ", 
+       XMLElement["expressiontype", {"name" -> "Default"}, {}], "\n   ", 
+       XMLElement["expressiontype", {"name" -> "Default"}, {}], "\n  "}], 
+     XMLElement["states", {"count" -> "1"}, {
+       XMLElement[
+       "state", {
+        "name" -> "Show details", "input" -> 
+         "SubjectPod:MathWorldData__Show details"}, {}]}]}], 
+   Typeset`aux1$$ = {True, False, {False}, True}, Typeset`aux2$$ = {
+   True, False, {False}, True}, Typeset`aux3$$ = {True, False, {False}, True},
+    Typeset`aux4$$ = {True, False, {False}, True}, Typeset`aux5$$ = {
+   True, False, {False, False}, True}, Typeset`asyncpods$$ = {}, 
+   Typeset`nonpods$$ = {}, Typeset`initdone$$ = 
+   FrontEnd`SuppressEvaluationHash[True], Typeset`queryinfo$$ = {
+   "success" -> "true", "error" -> 
+    "false", {"http://www.w3.org/XML/1998/namespace", "space"} -> "preserve", 
+    "numpods" -> "5", "datatypes" -> "", "timedout" -> "", "timedoutpods" -> 
+    "", "timing" -> "0.516", "parsetiming" -> "0.131", "parsetimedout" -> 
+    "false", "recalculate" -> "", "id" -> 
+    "MSP89401hch9905b78b126f00003h7eg6bda2i675fe", "host" -> 
+    "https://www6b3.wolframalpha.com", "server" -> "12", "related" -> 
+    "https://www6b3.wolframalpha.com/api/v1/relatedQueries.jsp?id=\
+MSPa89411hch9905b78b126f00001gah18ee154eb83d822558548030476863", "version" -> 
+    "2.6", "inputstring" -> "graph hole"}, Typeset`sessioninfo$$ = {
+   "TimeZone" -> 1., 
+    "Date" -> {2022, 1, 28, 17, 2, 48.94335`8.442268668029275}, "Line" -> 17, 
+    "SessionID" -> 30841170043181127290}, Typeset`showpods$$ = {1, 2, 3, 4, 
+   5}, Typeset`failedpods$$ = {2}, Typeset`chosen$$ = {}, Typeset`open$$ = 
+   False, Typeset`newq$$ = "graph hole"}, 
+   DynamicBox[ToBoxes[
+     AlphaIntegration`FormatAlphaResults[
+      Dynamic[{
+       1, {Typeset`pod1$$, Typeset`pod2$$, Typeset`pod3$$, Typeset`pod4$$, 
+         Typeset`pod5$$}, {
+        Typeset`aux1$$, Typeset`aux2$$, Typeset`aux3$$, Typeset`aux4$$, 
+         Typeset`aux5$$}, Typeset`chosen$$, Typeset`open$$, 
+        Typeset`elements$$, Typeset`q$$, Typeset`opts$$, Typeset`nonpods$$, 
+        Typeset`queryinfo$$, Typeset`sessioninfo$$, Typeset`showpods$$, 
+        Typeset`failedpods$$, Typeset`newq$$}]], StandardForm],
+    ImageSizeCache->{1541., {225.8515625, 231.1484375}},
+    TrackedSymbols:>{Typeset`showpods$$, Typeset`failedpods$$}],
+   DynamicModuleValues:>{},
+   Initialization:>If[
+     And[
+      Not[Typeset`initdone$$ === True], 
+      Not[Typeset`initdone$$ === FrontEnd`SuppressEvaluationHash[True]]], 
+     Null; WolframAlphaClient`Private`doAsyncUpdates[
+       Hold[{
+        Typeset`pod1$$, Typeset`pod2$$, Typeset`pod3$$, Typeset`pod4$$, 
+         Typeset`pod5$$}], Typeset`asyncpods$$, 
+       Dynamic[Typeset`failedpods$$]]; Typeset`asyncpods$$ = {}; 
+     Typeset`initdone$$ = FrontEnd`SuppressEvaluationHash[True]],
+   SynchronousInitialization->False],
+  BaseStyle->{Deployed -> True},
+  DeleteWithContents->True,
+  Editable->False,
+  SelectWithContents->True]], "Print", "WolframAlphaFullOutput",
+ CellChangeTimes->{
+  3.852374568957704*^9},ExpressionUUID->"c67a4680-0177-4f93-a56c-\
+e7e8ab57fa27"]
+}, Open  ]],
+
+Cell["\<\
+Since Wolfram Alpha does not include a picture of an odd hole, let us use the \
+builtin graph generators of Mathematica.\
+\>", "Text",
+ CellChangeTimes->{{3.852374591024929*^9, 
+  3.852374622974811*^9}},ExpressionUUID->"e773092b-c2a3-4b08-9744-\
+231834d95adc"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"GraphPlot", "[", 
+  RowBox[{"CycleGraph", "[", "5", "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.852374626600616*^9, 3.85237462661596*^9}, {
+  3.852374752093568*^9, 3.852374760089204*^9}, {3.852374799183675*^9, 
+  3.852374803995406*^9}, {3.852374910252296*^9, 3.852374944330009*^9}},
+ CellLabel->"In[22]:=",ExpressionUUID->"fd1692f7-9d19-4056-b0e1-f8744341b257"],
+
+Cell[BoxData[
+ GraphicsBox[
+  GraphicsComplexBox[{{-0.9510565162951538, 
+   0.3090169943749484}, {-7.044813998280222*^-16, 1.}, {0.9510565162951533, 
+   0.30901699437494634`}, {
+   0.5877852522924738, -0.8090169943749481}, {-0.5877852522924726, \
+-0.8090169943749468}}, {
+    {Hue[0.6, 0.7, 0.5], Opacity[0.7], Arrowheads[0.], 
+     ArrowBox[{{1, 2}, {1, 5}, {2, 3}, {3, 4}, {4, 5}}, 
+      0.021812234931106983`]}, 
+    {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], 
+     DiskBox[1, 0.021812234931106983], DiskBox[2, 0.021812234931106983], 
+     DiskBox[3, 0.021812234931106983], DiskBox[4, 0.021812234931106983], 
+     DiskBox[5, 0.021812234931106983]}}],
+  FormatType->TraditionalForm,
+  FrameTicks->None,
+  ImageSize->{Automatic, 284.75}]], "Output",
+ CellChangeTimes->{
+  3.852374774469514*^9, {3.852374804864902*^9, 3.852374812601616*^9}, 
+   3.852374914005764*^9, 3.852374945498796*^9},
+ CellLabel->"Out[22]=",ExpressionUUID->"69dedb6c-23f3-4b84-b50a-449c71eb6ea7"]
+}, Open  ]],
+
+Cell[TextData[{
+ "It is well known that the complement of the shortest odd hole on ",
+ Cell[BoxData[
+  FormBox["5", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "d7cc1ffa-a9e5-4d42-a453-85e381a82b6a"],
+ " vertices is isomorphic to its complement. Thus, let us generate the odd \
+antihole on ",
+ Cell[BoxData[
+  FormBox["7", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "bd303c57-721f-4f60-8b87-4d6e7aa66ae1"],
+ " vertices."
+}], "Text",
+ CellChangeTimes->{{3.8523749527904663`*^9, 
+  3.852375014453663*^9}},ExpressionUUID->"04b8d557-2c9d-4d6d-9395-\
+25c64611f664"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"GraphPlot", "[", 
+  RowBox[{"GraphComplement", "[", 
+   RowBox[{"CycleGraph", "[", "7", "]"}], "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.852375020693593*^9, 3.852375057695212*^9}},
+ CellLabel->"In[23]:=",ExpressionUUID->"37eea567-f98f-4961-933a-800cf80221f7"],
+
+Cell[BoxData[
+ GraphicsBox[
+  GraphicsComplexBox[{{-0.7818314824680302, 
+   0.6234898018587343}, {-7.044813998280222*^-16, 1.}, {0.7818314824680294, 
+   0.6234898018587326}, {0.9749279121818237, -0.2225209339563155}, {
+   0.43388373911755884`, -0.9009688679024196}, {-0.43388373911755757`, \
+-0.9009688679024187}, {-0.9749279121818235, -0.22252093395631342`}}, {
+    {Hue[0.6, 0.7, 0.5], Opacity[0.7], Arrowheads[0.], 
+     ArrowBox[{{1, 3}, {1, 4}, {1, 5}, {1, 6}, {2, 4}, {2, 5}, {2, 6}, {2, 
+      7}, {3, 5}, {3, 6}, {3, 7}, {4, 6}, {4, 7}, {5, 7}}, 
+      0.02220329551621769]}, 
+    {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], 
+     DiskBox[1, 0.02220329551621769], DiskBox[2, 0.02220329551621769], 
+     DiskBox[3, 0.02220329551621769], DiskBox[4, 0.02220329551621769], 
+     DiskBox[5, 0.02220329551621769], DiskBox[6, 0.02220329551621769], 
+     DiskBox[7, 0.02220329551621769]}}],
+  FormatType->TraditionalForm,
+  FrameTicks->None]], "Output",
+ CellChangeTimes->{3.852375058661048*^9},
+ CellLabel->"Out[23]=",ExpressionUUID->"fa3ec779-9961-4b24-bd55-dc6b5b5d158b"]
+}, Open  ]],
+
+Cell["\<\
+Let us generate all odd anti-holes up to 20 vertices and put them in a table. \
+\>", "Text",
+ CellChangeTimes->{{3.8523750750661793`*^9, 
+  3.8523751031951227`*^9}},ExpressionUUID->"7f25a429-5885-452b-9cc4-\
+e2c11cc99ea7"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1621.5, 1031.25},
+WindowMargins->{{0, Automatic}, {0, Automatic}},
+TaggingRules-><|"TryRealOnly" -> False|>,
+FrontEndVersion->"13.0 for Linux x86 (64-bit) (December 2, 2021)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"b80da7e5-074e-4dfb-ae9c-c293e71a69d6"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 296, 4, 105, "Title",ExpressionUUID->"6c5f7bf0-04e6-4f65-969d-9e3efe187459"],
+Cell[CellGroupData[{
+Cell[901, 30, 170, 3, 72, "Section",ExpressionUUID->"99ce688b-2c26-43a9-8eeb-3dc5631efc17"],
+Cell[1074, 35, 1177, 20, 162, "Text",ExpressionUUID->"1288fe64-a4b1-4dee-94d5-f3dfaf3b8827"],
+Cell[2254, 57, 255, 6, 34, "Item",ExpressionUUID->"b32719e0-1607-468a-b800-615b1b5ad729"],
+Cell[2512, 65, 266, 6, 34, "Item",ExpressionUUID->"01ce9e07-dc30-40b3-9c1c-3dd9a99e5be5"],
+Cell[2781, 73, 268, 6, 34, "Item",ExpressionUUID->"648dd9df-4f87-489b-9fb8-7373c7b9c95f"],
+Cell[3052, 81, 271, 6, 34, "Item",ExpressionUUID->"4425b8b2-2802-44e3-808c-2f99b5cf3119"],
+Cell[3326, 89, 270, 6, 34, "Item",ExpressionUUID->"1044ca70-6f49-471d-a832-df47285a4b2c"],
+Cell[3599, 97, 271, 6, 34, "Item",ExpressionUUID->"4753730f-d98a-4358-91db-be4c133a5bfc"],
+Cell[3873, 105, 276, 6, 34, "Item",ExpressionUUID->"7530cc3d-f00a-4318-b88f-168b8ca1c16a"],
+Cell[4152, 113, 265, 6, 34, "Item",ExpressionUUID->"859422c4-0047-4688-ba64-26ca54df67f8"],
+Cell[4420, 121, 267, 6, 34, "Item",ExpressionUUID->"c69f2313-464f-49c5-a85f-83adbc67e7fa"],
+Cell[4690, 129, 319, 7, 34, "Item",ExpressionUUID->"db22a1b8-2f02-4725-a015-68851fdb7da1"],
+Cell[5012, 138, 245, 4, 34, "Item",ExpressionUUID->"a2b0097a-e7d6-440e-ac36-565c1d38e7e4"],
+Cell[5260, 144, 226, 4, 34, "Item",ExpressionUUID->"73f9638b-504e-43ce-bad9-85d5b4845170"],
+Cell[5489, 150, 226, 4, 34, "Item",ExpressionUUID->"64bca2b9-9218-496e-9ec2-73d9aacd73de"],
+Cell[5718, 156, 278, 4, 34, "Item",ExpressionUUID->"547438a8-969e-48f3-9d38-7e4108d9f80a"],
+Cell[5999, 162, 395, 8, 34, "Item",ExpressionUUID->"19d7ce07-3c32-4bbd-881d-9f5e07652214"],
+Cell[6397, 172, 345, 7, 34, "Item",ExpressionUUID->"1ece3575-e019-4222-a9f9-5e4b96f4951e"],
+Cell[6745, 181, 276, 4, 34, "Item",ExpressionUUID->"02d95b0b-7833-43ec-a455-d061a47c6e7d"],
+Cell[7024, 187, 291, 6, 37, "Text",ExpressionUUID->"f70ace6e-5860-4fb7-b149-85e91b4c6d5d"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7352, 198, 181, 3, 72, "Section",ExpressionUUID->"a40f08a0-a769-4eb3-9857-e1a6f0a34739"],
+Cell[7536, 203, 756, 12, 87, "Text",ExpressionUUID->"5561f16b-7922-46f0-915c-877ebbd507c8"],
+Cell[8295, 217, 231, 4, 34, "Item",ExpressionUUID->"6871eb7a-400c-4816-a378-df171a85b079"],
+Cell[8529, 223, 223, 4, 34, "Item",ExpressionUUID->"17012fcb-3d74-4102-ac9a-2fd5eba52cd6"],
+Cell[8755, 229, 472, 9, 34, "Item",ExpressionUUID->"3321c8c2-6bdd-4dad-89eb-f79737c8cabe"],
+Cell[9230, 240, 227, 5, 37, "Text",ExpressionUUID->"792fd3b6-cdf1-44aa-8a24-8b9fb2177822"],
+Cell[9460, 247, 243, 6, 34, "Item",ExpressionUUID->"4958d76a-8a22-404b-89a9-92f5600b72ed"],
+Cell[9706, 255, 270, 7, 34, "Item",ExpressionUUID->"231eab29-e6d4-4ef2-ac87-34b6b24a3d8b"],
+Cell[9979, 264, 233, 6, 34, "Item",ExpressionUUID->"cfe3af97-20df-432c-9e6e-c8317257122a"],
+Cell[10215, 272, 1173, 36, 37, "Text",ExpressionUUID->"e9fceef4-8a08-484e-b21b-ce4de2aebd09"],
+Cell[11391, 310, 482, 9, 37, "Text",ExpressionUUID->"3677aa64-361a-480d-89c6-b2506fac260d"],
+Cell[CellGroupData[{
+Cell[11898, 323, 189, 2, 41, "WolframAlphaLong",ExpressionUUID->"c91d28fe-c084-42f2-9425-af229b0fcfb2"],
+Cell[12090, 327, 23631, 487, 487, "Print",ExpressionUUID->"f6c8c863-6c58-4d70-abd6-0eab8e96514b"]
+}, Open  ]],
+Cell[35736, 817, 298, 7, 37, "Text",ExpressionUUID->"fd3d8802-9445-45e3-bfe9-a930dc8493eb"],
+Cell[CellGroupData[{
+Cell[36059, 828, 203, 2, 41, "WolframAlphaLong",ExpressionUUID->"0ede34e3-bcf4-4c68-b643-b3e951437243"],
+Cell[36265, 832, 19831, 397, 487, "Print",ExpressionUUID->"ac896584-adff-449a-9f4f-dd91cc699fde"]
+}, Open  ]],
+Cell[56111, 1232, 284, 7, 37, "Text",ExpressionUUID->"e1412ef9-6df0-48ba-81ea-524251d2ec5a"],
+Cell[CellGroupData[{
+Cell[56420, 1243, 186, 2, 41, "WolframAlphaLong",ExpressionUUID->"9fb90ad0-0648-4ae4-b40f-149af5665211"],
+Cell[56609, 1247, 17906, 359, 467, "Print",ExpressionUUID->"c67a4680-0177-4f93-a56c-e7e8ab57fa27"]
+}, Open  ]],
+Cell[74530, 1609, 270, 6, 37, "Text",ExpressionUUID->"e773092b-c2a3-4b08-9744-231834d95adc"],
+Cell[CellGroupData[{
+Cell[74825, 1619, 387, 6, 29, "Input",ExpressionUUID->"fd1692f7-9d19-4056-b0e1-f8744341b257"],
+Cell[75215, 1627, 987, 20, 301, "Output",ExpressionUUID->"69dedb6c-23f3-4b84-b50a-449c71eb6ea7"]
+}, Open  ]],
+Cell[76217, 1650, 609, 16, 37, "Text",ExpressionUUID->"04b8d557-2c9d-4d6d-9395-25c64611f664"],
+Cell[CellGroupData[{
+Cell[76851, 1670, 287, 5, 29, "Input",ExpressionUUID->"37eea567-f98f-4961-933a-800cf80221f7"],
+Cell[77141, 1677, 1091, 19, 367, "Output",ExpressionUUID->"fa3ec779-9961-4b24-bd55-dc6b5b5d158b"]
+}, Open  ]],
+Cell[78247, 1699, 232, 5, 37, "Text",ExpressionUUID->"7f25a429-5885-452b-9cc4-e2c11cc99ea7"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
