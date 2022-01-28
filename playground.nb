@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    156038,       3141]
-NotebookOptionsPosition[    146959,       2995]
-NotebookOutlinePosition[    147399,       3012]
-CellTagsIndexPosition[    147356,       3009]
+NotebookDataLength[    158424,       3205]
+NotebookOptionsPosition[    148702,       3049]
+NotebookOutlinePosition[    149142,       3066]
+CellTagsIndexPosition[    149099,       3063]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -2985,9 +2985,63 @@ Restarting the kernel is simple as well, e.g. if we want to interrupt a long \
 running calculations. The shortcut is \[OpenCurlyDoubleQuote]Option + Dot\
 \[CloseCurlyDoubleQuote].\
 \>", "Text",
- CellChangeTimes->{{3.852376057720482*^9, 
-  3.852376110161786*^9}},ExpressionUUID->"e6fbc9fd-d656-42c4-9b42-\
-48c0f17c83e7"],
+ CellChangeTimes->{{3.852376057720482*^9, 3.852376110161786*^9}, {
+  3.852376163360867*^9, 
+  3.852376169337285*^9}},ExpressionUUID->"e6fbc9fd-d656-42c4-9b42-\
+48c0f17c83e7"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Core Language Features", "Section",
+ CellChangeTimes->{{3.8523761738963337`*^9, 
+  3.852376182153492*^9}},ExpressionUUID->"d03e6f4f-7cf1-42d1-8068-\
+d4dfeb0172fe"],
+
+Cell[TextData[{
+ "In this section we are going to give an overview of the core language \
+features. First, ",
+ StyleBox["everything",
+  FontWeight->"Bold"],
+ " in Mathematica is an expression. The expression \
+\[OpenCurlyDoubleQuote]FullForm\[CloseCurlyDoubleQuote] displays the full \
+form of a given expression, which is useful in some scenarios."
+}], "Text",
+ CellChangeTimes->{{3.852376186369746*^9, 
+  3.852376267555653*^9}},ExpressionUUID->"a5f49012-9b11-4092-aa48-\
+be0e46c5162e"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FullForm", "[", 
+  RowBox[{"3", " ", "+", "x"}], "]"}]], "Input",
+ CellChangeTimes->{{3.852376271871881*^9, 3.85237628657691*^9}},
+ CellLabel->"In[40]:=",ExpressionUUID->"53ba830d-a583-4f17-bf75-ebe901d1663c"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   RowBox[{"Plus", "[", 
+    RowBox[{"3", ",", "x"}], "]"}],
+   ShowSpecialCharacters->False,
+   ShowStringCharacters->True,
+   NumberMarks->True],
+  FullForm]], "Output",
+ CellChangeTimes->{{3.8523762786217527`*^9, 3.852376287460581*^9}},
+ CellLabel->
+  "Out[40]//FullForm=",ExpressionUUID->"d9a781a3-6dd2-4d9d-b1c7-2f3a1dc7f658"]
+}, Open  ]],
+
+Cell["\<\
+Lists are a fundamental concept in Mathematica. They are used all the time. \
+Let us evaluate the most important basics about lists.\
+\>", "Text",
+ CellChangeTimes->{{3.852376328790596*^9, 
+  3.852376351547298*^9}},ExpressionUUID->"b0a94ca5-4651-40d9-b9ea-\
+d2af7311be1f"],
+
+Cell["", "Text",ExpressionUUID->"36738835-90e7-4f91-bb74-67b54dc76fb2"],
 
 Cell[BoxData[""], "Input",ExpressionUUID->"8c10f62f-ce24-45ca-be23-c6f23700538a"]
 }, Open  ]]
@@ -3139,8 +3193,18 @@ Cell[CellGroupData[{
 Cell[146114, 2971, 237, 4, 29, "Input",ExpressionUUID->"5bd26f4f-2581-4b7b-8fd3-f0d03ea57ab9"],
 Cell[146354, 2977, 149, 2, 33, "Output",ExpressionUUID->"c7817a4a-699b-496a-a2a4-7bfbcc8bbe07"]
 }, Open  ]],
-Cell[146518, 2982, 329, 7, 37, "Text",ExpressionUUID->"e6fbc9fd-d656-42c4-9b42-48c0f17c83e7"],
-Cell[146850, 2991, 81, 0, 29, "Input",ExpressionUUID->"8c10f62f-ce24-45ca-be23-c6f23700538a"]
+Cell[146518, 2982, 378, 8, 37, "Text",ExpressionUUID->"e6fbc9fd-d656-42c4-9b42-48c0f17c83e7"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[146933, 2995, 169, 3, 72, "Section",ExpressionUUID->"d03e6f4f-7cf1-42d1-8068-d4dfeb0172fe"],
+Cell[147105, 3000, 487, 11, 37, "Text",ExpressionUUID->"a5f49012-9b11-4092-aa48-be0e46c5162e"],
+Cell[CellGroupData[{
+Cell[147617, 3015, 233, 4, 29, "Input",ExpressionUUID->"53ba830d-a583-4f17-bf75-ebe901d1663c"],
+Cell[147853, 3021, 366, 11, 46, "Output",ExpressionUUID->"d9a781a3-6dd2-4d9d-b1c7-2f3a1dc7f658"]
+}, Open  ]],
+Cell[148234, 3035, 282, 6, 37, "Text",ExpressionUUID->"b0a94ca5-4651-40d9-b9ea-d2af7311be1f"],
+Cell[148519, 3043, 71, 0, 37, "Text",ExpressionUUID->"36738835-90e7-4f91-bb74-67b54dc76fb2"],
+Cell[148593, 3045, 81, 0, 29, "Input",ExpressionUUID->"8c10f62f-ce24-45ca-be23-c6f23700538a"]
 }, Open  ]]
 }, Open  ]]
 }
